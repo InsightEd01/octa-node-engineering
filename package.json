@@ -1,0 +1,39 @@
+{
+  "name": "octa-node-engineering",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build && node scripts/generate-sitemap.js",
+    "preview": "vite preview",
+    "analyze": "npm run build && node scripts/analyze-bundle.js",
+    "build:analyze": "npm run build && npm run analyze",
+    "generate-sitemap": "node scripts/generate-sitemap.js"
+  },
+  "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "@types/react-datepicker": "^6.2.0",
+    "@types/react-router-dom": "^5.3.3",
+    "react": "^18.2.0",
+    "react-datepicker": "^8.4.0",
+    "react-dom": "^18.2.0",
+    "react-helmet-async": "^2.0.5",
+    "react-image-lightbox": "^5.1.4",
+    "react-quill": "^2.0.0",
+    "react-router-dom": "^7.7.1",
+    "react-select": "^5.10.2",
+    "react-slick": "^0.30.3",
+    "slick-carousel": "^1.8.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.0.3",
+    "terser": "^5.43.1",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5"
+  }
+}
