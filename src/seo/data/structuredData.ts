@@ -7,9 +7,9 @@ export const organizationStructuredData: OrganizationData = {
   name: 'Octa Node Engineering',
   alternateName: 'Octa Node',
   description: 'Leading AI solutions provider offering innovative artificial intelligence products for business automation, education, and banking sectors.',
-  url: 'https://octanodeengineering.com',
-  logo: 'https://octanodeengineering.com/assets/logo.png',
-  image: 'https://octanodeengineering.com/assets/logo.png',
+  url: 'https://octanode.online',
+  logo: 'https://octanode.online/assets/logo.png',
+  image: 'https://octanode.online/assets/logo.png',
   foundingDate: '2020',
   industry: 'Artificial Intelligence',
   knowsAbout: [
@@ -88,8 +88,8 @@ export const stylusAIStructuredData: ProductData = {
   name: 'Stylus AI',
   description: 'Revolutionizing assessments, Stylus AI is an advanced system that accurately marks theory questions and all kinds of handwritten tests, saving educators countless hours and providing instant, consistent feedback.',
   image: [
-    'https://octanodeengineering.com/assets/stylus1.png', 
-    'https://octanodeengineering.com/assets/stylus2.png'
+    'https://octanode.online/assets/stylus1.png', 
+    'https://octanode.online/assets/stylus2.png'
   ],
   brand: {
     '@type': 'Brand',
@@ -110,7 +110,7 @@ export const stylusAIStructuredData: ProductData = {
   offers: {
     '@type': 'Offer',
     availability: 'https://schema.org/InStock',
-    url: 'https://stylus-ai.octanode.com',
+    url: 'https://stylusaipro.netlify.app',
     seller: {
       '@type': 'Organization',
       name: 'Octa Node Engineering'
@@ -131,7 +131,7 @@ export const tibotStructuredData: ProductData = {
   '@type': 'Product',
   name: 'TI-BOT',
   description: 'An AI-enabled time management system that replaces traditional bells in schools and enhances announcements and student engagement over a large school.',
-  image: ['https://octanodeengineering.com/assets/Tibot.png'],
+  image: ['https://octanode.online/assets/Tibot.png'],
   brand: {
     '@type': 'Brand',
     name: 'Octa Node Engineering',
@@ -171,11 +171,11 @@ export const tibotStructuredData: ProductData = {
 export const localBusinessStructuredData: LocalBusinessData = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  '@id': 'https://octanodeengineering.com/#organization',
+  '@id': 'https://octanode.online/#organization',
   name: 'Octa Node Engineering',
   alternateName: 'Octa Node',
   description: 'Leading AI solutions provider specializing in artificial intelligence products for business automation, education technology, and digital transformation in Nigeria.',
-  url: 'https://octanodeengineering.com',
+  url: 'https://octanode.online',
   telephone: '+234-XXX-XXX-XXXX',
   email: 'info@octanodeengineering.com',
   address: {

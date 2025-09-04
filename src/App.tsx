@@ -37,6 +37,9 @@ import { SEOHead } from './seo/components/SEOHead';
 import { useSEO } from './seo/hooks/useSEO';
 import OrganizationStructuredData from './seo/components/OrganizationStructuredData';
 import LocalBusinessStructuredData from './seo/components/LocalBusinessStructuredData';
+import WebSiteStructuredData from './seo/components/WebSiteStructuredData';
+import { generateBreadcrumbStructuredData } from './seo/utils/seoUtils';
+import StructuredData from './seo/components/StructuredData';
 
 // Function to handle smooth scrolling to sections
 const scrollToSection = (sectionId: string) => {
@@ -192,6 +195,23 @@ function App() {
   const [modalProductName, setModalProductName] = useState<string>('');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // Rotating hero terms
+  const rotatingTerms = [
+    'Business',
+    'Education',
+    'Banking',
+    'Automation',
+    'Analytics',
+    'Security'
+  ];
+  const [termIndex, setTermIndex] = useState<number>(0);
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setTermIndex((prev) => (prev + 1) % rotatingTerms.length);
+    }, 2200);
+    return () => window.clearInterval(intervalId);
+  }, []);
+
   // Initialize Google Analytics
   useEffect(() => {
     if (import.meta.env.PROD) {
@@ -268,6 +288,8 @@ function App() {
       <Router>
         {/* Default SEO fallback for all routes */}
         <SEOHead />
+        {/* Global WebSite + SearchAction structured data */}
+        <WebSiteStructuredData />
         
         <ErrorBoundary>
           <Routes>
@@ -298,6 +320,10 @@ function App() {
                     {/* Structured Data for Organization and Local Business */}
                     <OrganizationStructuredData />
                     <LocalBusinessStructuredData />
+                    {/* Breadcrumbs for Home */}
+                    <StructuredData data={generateBreadcrumbStructuredData([
+                      { name: 'Home', url: 'https://octanode.online/' }
+                    ])} />
                     
                     <section id="home" className="hero">
                       <div className="hero-container">
@@ -305,9 +331,14 @@ function App() {
                           <div className="hero-badge">
                             OCTA NODE ENGINEERING (ONE INTELLIGENCE)
                           </div>
+                          <h3>
+                            Leading AI Solutions for{' '}
+                            <span key={termIndex} className="rotating-term">
+                              {rotatingTerms[termIndex]}
+                            </span>
+                          </h3>
                           <h1>
-                            Leading AI Solutions for Business
-                            <span className="highlight"> <br />Transform Your Future!</span>
+                            <span className="highlight">Redefining The Future!</span>
                           </h1>
                           <p>We infuse the world with intelligence by developing bespoke AI solutions that drive growth, efficiency, and innovation in education, business, and banking. Discover our flagship products: Stylus AI for educational excellence and TI-BOT for smart banking automation.</p>
                           <div className="hero-actions">
@@ -495,9 +526,33 @@ function App() {
                     </section>
                   </>
                 } />
-                <Route path="/product/:productId" element={<LazyProductPage />} />
-                <Route path="/privacy" element={<LazyPrivacy />} />
-                <Route path="/terms" element={<LazyTerms />} />
+                <Route path="/product/:productId" element={
+                  <>
+                    <StructuredData data={generateBreadcrumbStructuredData([
+                      { name: 'Home', url: 'https://octanode.online/' },
+                      { name: 'Products', url: 'https://octanode.online/#products' }
+                    ])} />
+                    <LazyProductPage />
+                  </>
+                } />
+                <Route path="/privacy" element={
+                  <>
+                    <StructuredData data={generateBreadcrumbStructuredData([
+                      { name: 'Home', url: 'https://octanode.online/' },
+                      { name: 'Privacy Policy', url: 'https://octanode.online/privacy' }
+                    ])} />
+                    <LazyPrivacy />
+                  </>
+                } />
+                <Route path="/terms" element={
+                  <>
+                    <StructuredData data={generateBreadcrumbStructuredData([
+                      { name: 'Home', url: 'https://octanode.online/' },
+                      { name: 'Terms & Conditions', url: 'https://octanode.online/terms' }
+                    ])} />
+                    <LazyTerms />
+                  </>
+                } />
               </Routes>
                 </Suspense>
               </main>
@@ -510,7 +565,8 @@ function App() {
                       src={logoImg} 
                       alt={generateAltText('Octa Node Engineering', 'logo')} 
                       className="footer-logo"
-                      loading="lazy"
+                      loading="eager"
+                      priority={true}
                     />
                     <p>Infusing the world with intelligence through cutting-edge AI solutions for education, business, and banking.</p>
                     <div className="social-links">

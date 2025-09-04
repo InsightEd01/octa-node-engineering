@@ -38,20 +38,20 @@ const Carousel: React.FC = () => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 2000,
-    fade: true,
+    speed: 600,
+    fade: false,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    cssEase: 'linear',
+    cssEase: 'ease',
     arrows: false,
     pauseOnHover: false,
     pauseOnFocus: false,
     pauseOnDotsHover: false,
-    swipe: false,
-    touchMove: false,
-    draggable: false,
+    swipe: true,
+    touchMove: true,
+    draggable: true,
   };
 
   return (

@@ -3,3 +3,4 @@ export { default as StructuredData } from './StructuredData';
 export { default as OrganizationStructuredData } from './OrganizationStructuredData';
 export { default as ProductStructuredData } from './ProductStructuredData';
 export { default as LocalBusinessStructuredData } from './LocalBusinessStructuredData';
+export { default as WebSiteStructuredData } from './WebSiteStructuredData';

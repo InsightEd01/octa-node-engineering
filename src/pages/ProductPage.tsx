@@ -7,6 +7,8 @@ import ImageModal from '../components/ImageModal';
 // SEO Components
 import { SEOHead } from '../seo/components/SEOHead';
 import ProductStructuredData from '../seo/components/ProductStructuredData';
+import StructuredData from '../seo/components/StructuredData';
+import { generateFAQStructuredData } from '../seo/utils/seoUtils';
 import { SocialSharingPreview } from '../seo/components/SocialSharingPreview';
 import { stylusAIStructuredData, tibotStructuredData } from '../seo/data/structuredData';
 
@@ -27,10 +29,13 @@ const ProductPage: React.FC = () => {
   };
 
   const closeModal = () => {
-    setIsModalOpen(false);
     setModalImage('');
     setModalProductName('');
+    setIsModalOpen(false);
   };
+  
+  // Mobile detection state (commented out until needed)
+  // const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   if (!product) {
     return (
@@ -93,6 +98,73 @@ const ProductPage: React.FC = () => {
     };
   };
 
+  // Build product-specific FAQs for JSON-LD
+  const faqItems: Array<{ question: string; answer: string }> = (() => {
+    if (product.id === 'stylus-ai') {
+      return [
+        {
+          question: 'What is Stylus AI?',
+          answer: 'Stylus AI is an AI-powered assessment system that marks handwritten and theory-based exams with high accuracy, providing instant, consistent feedback for educators.'
+        },
+        {
+          question: 'How accurate is Stylus AI for handwriting recognition?',
+          answer: 'Stylus AI uses advanced handwriting recognition with multi-language support and customizable rubrics, delivering consistent accuracy that improves with usage.'
+        },
+        {
+          question: 'Does Stylus AI integrate with LMS platforms?',
+          answer: 'Yes. Stylus AI integrates with popular LMS platforms and supports exports for common formats, enabling streamlined grading workflows.'
+        },
+        {
+          question: 'Can I customize grading criteria?',
+          answer: 'Absolutely. Educators can define custom rubrics and criteria per subject or assessment type to match institutional standards.'
+        },
+        {
+          question: 'Is my data secure?',
+          answer: 'We follow industry best practices for data security and privacy, including encrypted storage and role-based access controls.'
+        }
+      ];
+    }
+    if (product.id === 'ti-bot') {
+      return [
+        {
+          question: 'What is TI-BOT?',
+          answer: 'TI-BOT is an AI-enabled school time management and announcement system that replaces traditional bells with smart scheduling and multi-zone audio.'
+        },
+        {
+          question: 'Can TI-BOT manage multiple zones?',
+          answer: 'Yes. TI-BOT supports multi-zone audio management for different blocks or departments, including emergency broadcast overrides.'
+        },
+        {
+          question: 'Is TI-BOT cloud managed?',
+          answer: 'TI-BOT provides cloud-based management for scheduling, monitoring, and updates, accessible from web and mobile.'
+        },
+        {
+          question: 'How reliable is TI-BOT during network issues?',
+          answer: 'Schedules are cached on-device for offline continuity, and the system syncs automatically once connectivity is restored.'
+        },
+        {
+          question: 'Does TI-BOT integrate with school systems?',
+          answer: 'TI-BOT integrates with common school management systems and calendars to automate bell schedules and announcements.'
+        }
+      ];
+    }
+    // Generic fallback FAQs
+    return [
+      {
+        question: `What is ${product.name}?`,
+        answer: `${product.name} is an AI-powered solution designed to help ${product.targetAudience.toLowerCase()} improve efficiency through intelligent automation.`
+      },
+      {
+        question: 'How does pricing work?',
+        answer: 'Pricing depends on deployment size and feature needs. Contact our team for a tailored quote.'
+      },
+      {
+        question: 'Can it integrate with our existing tools?',
+        answer: 'Yes. We support integrations via APIs and common connectors. Our team assists with implementation.'
+      }
+    ];
+  })();
+
   return (
     <div className="product-page">
       {/* Product SEO */}
@@ -106,6 +178,8 @@ const ProductPage: React.FC = () => {
       
       {/* Product Structured Data */}
       <ProductStructuredData product={getProductStructuredData()} />
+      {/* FAQPage JSON-LD */}
+      <StructuredData data={generateFAQStructuredData(faqItems)} />
       {/* Hero Section */}
       <section className="product-hero">
         <div className="container">

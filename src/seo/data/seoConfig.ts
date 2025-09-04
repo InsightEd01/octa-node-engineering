@@ -15,6 +15,9 @@ export const seoConfig: SEOConfig = {
     'educational AI',
     'banking AI',
     'Nigeria AI company',
+    'AI company Nigeria',
+    'AI solutions Nigeria',
+    'AI consulting Nigeria',
     'Octa Node Engineering'
   ],
   siteUrl: 'https://octanode.online',
@@ -29,14 +32,35 @@ export const seoConfig: SEOConfig = {
 export const pageSEOConfig = {
   home: {
     title: 'AI Solutions for Business - Octa Node Engineering',
-    description: 'Transform your business with our cutting-edge AI solutions including Stylus AI for education and TI-BOT for banking. Leading AI company in Nigeria.',
-    keywords: ['AI solutions for business', 'artificial intelligence education', 'AI banking solutions', 'Nigeria AI company']
+    description: 'Transform your business with cutting-edge AI solutions including Stylus AI for education and TI-BOT for banking. Leading AI company in Nigeria.',
+    keywords: [
+      'AI solutions for business',
+      'AI solutions Nigeria',
+      'AI company Nigeria',
+      'artificial intelligence consulting',
+      'business automation AI',
+      'artificial intelligence education',
+      'AI banking solutions',
+      'Stylus AI',
+      'TI-BOT',
+      'Octa Node Engineering'
+    ]
   },
   
   products: {
     title: 'Our AI Products - Stylus AI & TI-BOT',
-    description: 'Discover our innovative AI products: Stylus AI for educational enhancement and TI-BOT for banking automation. Advanced AI solutions for modern businesses.',
-    keywords: ['Stylus AI', 'TI-BOT', 'AI products', 'educational AI', 'banking AI']
+    description: 'Discover our innovative AI products: Stylus AI for educational enhancement and TI-BOT for school automation. Advanced AI solutions for modern businesses.',
+    keywords: [
+      'Stylus AI',
+      'TI-BOT',
+      'AI products',
+      'educational AI',
+      'banking AI',
+      'AI handwriting marking system',
+      'automated exam grading',
+      'AI school bell',
+      'IoT school automation'
+    ]
   },
   
   about: {
@@ -48,7 +72,7 @@ export const pageSEOConfig = {
   contact: {
     title: 'Contact Us - Get AI Solutions for Your Business',
     description: 'Contact Octa Node Engineering for AI solutions consultation. Located in Nigeria, we provide AI services globally. Get in touch for your AI transformation.',
-    keywords: ['contact AI company', 'AI consultation', 'AI services Nigeria', 'business AI solutions']
+    keywords: ['contact AI company', 'AI consultation', 'AI services Nigeria', 'business AI solutions', 'AI partner Nigeria']
   },
   
   privacy: {

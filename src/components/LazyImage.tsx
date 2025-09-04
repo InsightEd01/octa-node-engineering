@@ -21,12 +21,13 @@ const LazyImage: React.FC<LazyImageProps> = ({
   loading = 'lazy',
   srcSet,
   sizes,
-  priority = false
+  priority = false,
 }) => {
   const [isLoaded, setIsLoaded] = useState(priority || loading === 'eager');
   const [isInView, setIsInView] = useState(priority || loading === 'eager');
   const [hasError, setHasError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     if (priority || loading === 'eager') {
@@ -38,24 +39,33 @@ const LazyImage: React.FC<LazyImageProps> = ({
     setIsLoaded(false);
     setHasError(false);
 
-    const observer = new IntersectionObserver(
+    // Cleanup previous observer if it exists
+    if (observerRef.current) {
+      observerRef.current.disconnect();
+    }
+
+    observerRef.current = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsInView(true);
-          observer.disconnect();
+          observerRef.current?.disconnect();
         }
       },
       {
         threshold: 0.1,
-        rootMargin: '50px'
+        rootMargin: '50px',
       }
     );
 
     if (imgRef.current) {
-      observer.observe(imgRef.current);
+      observerRef.current.observe(imgRef.current);
     }
 
-    return () => observer.disconnect();
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
   }, [src, priority, loading]);
 
   const handleLoad = () => {
@@ -67,30 +77,23 @@ const LazyImage: React.FC<LazyImageProps> = ({
     setIsLoaded(true);
   };
 
-  const shouldLoad = loading === 'eager' || isInView;
+  const shouldLoad = isInView || loading === 'eager' || priority;
 
   return (
     <div className={`lazy-image-container ${className}`} ref={imgRef}>
       {shouldLoad && (
-        <>
-          <img
-            src={hasError ? placeholder : src}
-            srcSet={srcSet}
-            sizes={sizes}
-            alt={alt}
-            className={`lazy-image ${isLoaded ? 'loaded' : 'loading'} ${className}`}
-            onLoad={handleLoad}
-            onError={handleError}
-            onClick={onClick}
-            loading={loading}
-            decoding="async"
-          />
-          {!isLoaded && (
-            <div className="lazy-image-loading-indicator">
-              <div className="lazy-image-spinner"></div>
-            </div>
-          )}
-        </>
+        <img
+          src={hasError ? placeholder : src}
+          srcSet={srcSet}
+          sizes={sizes}
+          alt={alt}
+          className={`lazy-image ${className}`}
+          onLoad={handleLoad}
+          onError={handleError}
+          onClick={onClick}
+          loading={loading}
+          decoding="async"
+        />
       )}
       {!shouldLoad && (
         <img
