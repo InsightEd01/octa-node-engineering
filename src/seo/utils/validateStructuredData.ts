@@ -1,4 +1,4 @@
-import { Product } from '../../types';
+import { Product } from '../../data/products';
 
 export const validateProductStructuredData = (product: Product) => {
   const scriptContent = document.querySelector(

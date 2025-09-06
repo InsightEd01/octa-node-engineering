@@ -1,17 +1,41 @@
 # Robots.txt for Octa Node Engineering
+# https://octanode.online
+
+# Allow all search engines to crawl the site
 User-agent: *
 Allow: /
 
 # Disallow admin routes and sensitive areas
 Disallow: /admin/
-Disallow: /api/
-Disallow: /_*
+Disallow: /admin/*
 
-# Optional: keep JSON data endpoints out of the index
-Disallow: /*.json$
+# Allow specific important pages
+Allow: /
+Allow: /product/
+Allow: /product/*
+Allow: /privacy
+Allow: /terms
 
-# Crawl delay (optional)
+# Crawl delay to be respectful to server resources
 Crawl-delay: 1
 
 # Sitemap location
 Sitemap: https://octanode.online/sitemap.xml
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Crawl-delay: 1
+
+# Block any potential scraping bots from sensitive areas
+User-agent: *
+Disallow: /*.json$
+Disallow: /api/
+Disallow: /_*
+Disallow: /.*
