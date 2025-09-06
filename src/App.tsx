@@ -23,6 +23,7 @@ import {
   LazyProductPage, 
   LazyPrivacy, 
   LazyTerms, 
+  LazyBlog,
   LazyAdminRouter,
   LazyChatWidget,
   preloadCriticalComponents 
@@ -166,6 +167,12 @@ const Navigation: React.FC = () => {
             >
               Contact
             </a>
+          </li>
+
+          <li>
+            <Link to="/blog">
+              Blog
+            </Link>
           </li>
 
         </ul>
@@ -551,6 +558,15 @@ function App() {
                       { name: 'Terms & Conditions', url: 'https://octanode.online/terms' }
                     ])} />
                     <LazyTerms />
+                  </>
+                } />
+                <Route path="/blog" element={
+                  <>
+                    <StructuredData data={generateBreadcrumbStructuredData([
+                      { name: 'Home', url: 'https://octanode.online/' },
+                      { name: 'Blog', url: 'https://octanode.online/blog' }
+                    ])} />
+                    <LazyBlog />
                   </>
                 } />
               </Routes>

@@ -4,6 +4,11 @@ import { SocialSharingButtons } from './SocialSharingButtons';
 import { SocialSharingProps } from '../types';
 import { generateSocialImage, generateSocialImageAlt } from '../utils/socialImageGenerator';
 
+// Import social media icons
+import FacebookIcon from '../../../assets/facebook.svg';
+import TwitterIcon from '../../../assets/twitter.svg';
+import LinkedInIcon from '../../../assets/linkedin.svg';
+
 interface SocialSharingPreviewProps extends SocialSharingProps {
   showPreview?: boolean;
   previewPlatform?: 'facebook' | 'twitter' | 'linkedin';
@@ -59,21 +64,31 @@ export const SocialSharingPreview: React.FC<SocialSharingPreviewProps> = ({
         <div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
           <div className="flex flex-col space-y-4">
             {/* Platform Selector */}
-            <div className="flex space-x-2">
-              <span className="text-sm font-medium text-gray-700">Preview for:</span>
-              {(['facebook', 'twitter', 'linkedin'] as const).map((platform) => (
-                <button
-                  key={platform}
-                  onClick={() => setSelectedPreviewPlatform(platform)}
-                  className={`px-3 py-1 text-xs font-medium rounded-full capitalize transition-colors ${
-                    selectedPreviewPlatform === platform
-                      ? 'bg-blue-100 text-blue-800'
-                      : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
-                  }`}
-                >
-                  {platform}
-                </button>
-              ))}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <span className="text-sm font-medium text-gray-700">Preview for:</span>
+                <div className="flex space-x-2">
+                  {([
+                    { platform: 'facebook', icon: FacebookIcon, name: 'Facebook' },
+                    { platform: 'twitter', icon: TwitterIcon, name: 'Twitter' },
+                    { platform: 'linkedin', icon: LinkedInIcon, name: 'LinkedIn' }
+                  ] as const).map(({ platform, icon, name }) => (
+                    <button
+                      key={platform}
+                      onClick={() => setSelectedPreviewPlatform(platform)}
+                      className={`inline-flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-200 ${
+                        selectedPreviewPlatform === platform
+                          ? 'bg-blue-100 border-2 border-blue-200 shadow-sm'
+                          : 'bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300'
+                      }`}
+                      title={`Preview for ${name}`}
+                      aria-label={`Preview for ${name}`}
+                    >
+                      <img src={icon} alt={`${name} icon`} className="w-5 h-5" />
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Preview Card */}

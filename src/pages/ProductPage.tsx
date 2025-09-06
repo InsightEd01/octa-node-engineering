@@ -274,15 +274,17 @@ const ProductPage: React.FC = () => {
               </div>
 
               <div className="social-sharing-card">
-                <SocialSharingPreview
-                  url={typeof window !== 'undefined' ? window.location.href : `https://octanodeengineering.com/product/${product.id}`}
-                  title={productTitle}
-                  description={productDescription}
-                  image={product.images[0]}
-                  showLabels={false}
-                  platforms={['facebook', 'twitter', 'linkedin', 'whatsapp']}
-                  showPreview={false}
-                />
+                <h4 className="text-sm font-medium text-gray-700 mb-2">Share this product</h4>
+                <div className="product-social-share">
+                  <SocialSharingPreview
+                    url={typeof window !== 'undefined' ? window.location.href : `https://octanodeengineering.com/product/${product.id}`}
+                    title={productTitle}
+                    description={productDescription}
+                    image={product.images[0]}
+                    platforms={['facebook', 'twitter', 'linkedin', 'whatsapp']}
+                    showPreview={false}
+                  />
+                </div>
               </div>
             </div>
           </div>

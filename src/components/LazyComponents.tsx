@@ -13,7 +13,10 @@ export const LazyTerms = lazy(() =>
   import('../pages/Terms').then(module => ({ default: module.default }))
 );
 
-// Lazy load admin components
+export const LazyBlog = lazy(() => 
+  import('../pages/Blog').then(module => ({ default: module.default }))
+);
+
 export const LazyAdminRouter = lazy(() => 
   import('../admin/AdminRouter').then(module => ({ default: module.default }))
 );
