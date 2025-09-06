@@ -151,7 +151,7 @@ export const tibotStructuredData: ProductData = {
   offers: {
     '@type': 'Offer',
     availability: 'https://schema.org/InStock',
-    url: 'https://ti-bot.octanode.com',
+    url: 'https://tibot-ai.netlify.app',
     seller: {
       '@type': 'Organization',
       name: 'Octa Node Engineering'

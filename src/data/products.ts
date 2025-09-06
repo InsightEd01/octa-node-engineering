@@ -100,7 +100,7 @@ The system integrates seamlessly with existing school infrastructure while provi
       compatibility: 'Existing PA systems, network infrastructure',
       requirements: 'Network connectivity, compatible audio equipment'
     },
-    appUrl: 'https://ti-bot.octanode.com',
+    appUrl: 'https://tibot-ai.netlify.app',
     category: 'School Management',
     launchDate: '2024'
   }
