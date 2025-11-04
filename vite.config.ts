@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/', // Changed from './' for Vercel deployment
+  base: './', // Use relative paths for deployment
   publicDir: 'public', // Ensure public directory is copied to dist
   build: {
     outDir: 'dist',
@@ -50,7 +50,7 @@ export default defineConfig({
     },
     
     // Optimize build performance
-    // target: 'esnext', // Removed for Vercel compatibility
+    target: 'esnext',
     minify: 'terser',
     terserOptions: {
       compress: {
