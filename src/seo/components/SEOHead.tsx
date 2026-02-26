@@ -27,7 +27,10 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   const finalKeywords = generateKeywords(keywords);
   const finalUrl = url || (typeof window !== 'undefined' ? window.location.href : seoConfig.siteUrl);
   const finalCanonical = canonical || finalUrl;
-  
+
+  // Generate alternate URL for the other domain
+  const alternateUrl = finalCanonical.replace('octanode.online', 'octnode.co');
+
   // Generate social media optimized image
   const socialImage = image || generateSocialImage({
     title: finalTitle,
@@ -39,24 +42,53 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       <Helmet>
         {/* Basic Meta Tags */}
         <title>{finalTitle}</title>
+        <meta name="title" content={finalTitle} />
         <meta name="description" content={finalDescription} />
         <meta name="keywords" content={finalKeywords.join(', ')} />
-        
+        <meta name="author" content="Octa Node Engineering" />
+
         {/* Google Search Console Verification */}
         {seoConfig.googleSiteVerification && (
           <meta name="google-site-verification" content={seoConfig.googleSiteVerification} />
         )}
-        
+
         {/* Canonical URL */}
         <link rel="canonical" href={finalCanonical} />
-        
+
+        {/* Alternate domain hreflang */}
+        <link rel="alternate" hrefLang="en" href={finalCanonical} />
+        <link rel="alternate" hrefLang="en" href={alternateUrl} />
+        <link rel="alternate" hrefLang="x-default" href={finalCanonical} />
+
         {/* Robots Meta */}
-        {noindex && <meta name="robots" content="noindex, nofollow" />}
-        
+        {noindex ? (
+          <meta name="robots" content="noindex, nofollow" />
+        ) : (
+          <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        )}
+
+        {/* Additional SEO meta tags */}
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="3 days" />
+        <meta name="rating" content="general" />
+        <meta name="distribution" content="global" />
+        <meta name="copyright" content="Octa Node Engineering" />
+
+        {/* Geo-targeting meta tags */}
+        <meta name="geo.region" content="NG-ON" />
+        <meta name="geo.placename" content="Ondo, Nigeria" />
+        <meta name="geo.position" content="7.0906;4.8354" />
+        <meta name="ICBM" content="7.0906, 4.8354" />
+
+        {/* Mobile optimization */}
+        <meta name="format-detection" content="telephone=yes" />
+        <meta name="apple-mobile-web-app-title" content="OctaNode" />
+        <meta name="application-name" content="Octa Node Engineering" />
+
         {/* Additional custom meta tags */}
         {children}
       </Helmet>
-      
+
       {/* Social Media Meta Tags */}
       <SocialMeta
         title={finalTitle}

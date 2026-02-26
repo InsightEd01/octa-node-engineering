@@ -1,41 +1,76 @@
 # Robots.txt for Octa Node Engineering
-# https://octanode.online
+# Primary: https://octanode.online
+# Alternate: https://octnode.co
 
 # Allow all search engines to crawl the site
 User-agent: *
-Allow: /
-
-# Disallow admin routes and sensitive areas
-Disallow: /admin/
-Disallow: /admin/*
-
-# Allow specific important pages
 Allow: /
 Allow: /product/
 Allow: /product/*
 Allow: /privacy
 Allow: /terms
+Allow: /blog
+
+# Disallow admin routes and sensitive areas
+Disallow: /admin/
+Disallow: /admin/*
+Disallow: /*.json$
+Disallow: /api/
+Disallow: /_*
+Disallow: /.*
 
 # Crawl delay to be respectful to server resources
 Crawl-delay: 1
 
-# Sitemap location
-Sitemap: https://octanode.online/sitemap.xml
-
-# Specific rules for major search engines
+# Google specific rules
 User-agent: Googlebot
 Allow: /
 Disallow: /admin/
 Crawl-delay: 1
 
+User-agent: Googlebot-Image
+Allow: /assets/
+Allow: /images/
+
+# Bing specific rules
 User-agent: Bingbot
 Allow: /
 Disallow: /admin/
 Crawl-delay: 1
 
-# Block any potential scraping bots from sensitive areas
-User-agent: *
-Disallow: /*.json$
-Disallow: /api/
-Disallow: /_*
-Disallow: /.*
+# Yandex
+User-agent: Yandex
+Allow: /
+Disallow: /admin/
+Crawl-delay: 2
+
+# Baidu
+User-agent: Baiduspider
+Allow: /
+Disallow: /admin/
+Crawl-delay: 2
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /admin/
+
+# Social media bots (allow for rich previews)
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# Sitemap locations
+Sitemap: https://octanode.online/sitemap.xml
+Sitemap: https://octnode.co/sitemap.xml
+
+# Host
+Host: https://octanode.online

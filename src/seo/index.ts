@@ -10,13 +10,13 @@ export { useSEO, useProductSEO } from './hooks/useSEO';
 export { useSocialSharing } from './hooks/useSocialSharing';
 
 // Types
-export type { 
-  SEOProps, 
-  SEOConfig, 
-  PageSEO, 
-  SocialMetaProps, 
-  SocialSharingProps, 
-  SocialImageOptions 
+export type {
+  SEOProps,
+  SEOConfig,
+  PageSEO,
+  SocialMetaProps,
+  SocialSharingProps,
+  SocialImageOptions
 } from './types';
 
 // Configuration
@@ -30,9 +30,13 @@ export {
   getPageSEO,
   generateProductSEO,
   createCanonicalUrl,
+  createAlternateUrl,
   generateOrganizationStructuredData,
   cleanMetaDescription,
-  generateBreadcrumbStructuredData
+  generateBreadcrumbStructuredData,
+  generateFAQStructuredData,
+  generateHowToStructuredData,
+  generateSoftwareApplicationStructuredData
 } from './utils/seoUtils';
 
 export {

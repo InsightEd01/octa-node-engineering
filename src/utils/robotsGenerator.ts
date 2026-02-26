@@ -7,11 +7,13 @@ export interface RobotsRule {
 
 export class RobotsGenerator {
   private baseUrl: string;
+  private alternateUrl: string;
   private rules: RobotsRule[];
   private sitemaps: string[];
 
-  constructor(baseUrl: string = 'https://octanode.online') {
-    this.baseUrl = baseUrl.replace(/\/$/, ''); // Remove trailing slash
+  constructor(baseUrl: string = 'https://octanode.online', alternateUrl: string = 'https://octnode.co') {
+    this.baseUrl = baseUrl.replace(/\/$/, '');
+    this.alternateUrl = alternateUrl.replace(/\/$/, '');
     this.rules = [];
     this.sitemaps = [];
   }
@@ -42,7 +44,8 @@ export class RobotsGenerator {
         '/product/',
         '/product/*',
         '/privacy',
-        '/terms'
+        '/terms',
+        '/blog'
       ],
       disallow: [
         '/admin/',
@@ -64,22 +67,70 @@ export class RobotsGenerator {
     });
 
     this.addRule({
+      userAgent: 'Googlebot-Image',
+      allow: ['/assets/', '/images/']
+    });
+
+    this.addRule({
       userAgent: 'Bingbot',
       allow: ['/'],
       disallow: ['/admin/'],
       crawlDelay: 1
     });
 
-    // Add sitemap
+    this.addRule({
+      userAgent: 'Yandex',
+      allow: ['/'],
+      disallow: ['/admin/'],
+      crawlDelay: 2
+    });
+
+    this.addRule({
+      userAgent: 'Baiduspider',
+      allow: ['/'],
+      disallow: ['/admin/'],
+      crawlDelay: 2
+    });
+
+    this.addRule({
+      userAgent: 'DuckDuckBot',
+      allow: ['/'],
+      disallow: ['/admin/']
+    });
+
+    // Social media bots for rich previews
+    this.addRule({
+      userAgent: 'facebookexternalhit',
+      allow: ['/']
+    });
+
+    this.addRule({
+      userAgent: 'Twitterbot',
+      allow: ['/']
+    });
+
+    this.addRule({
+      userAgent: 'LinkedInBot',
+      allow: ['/']
+    });
+
+    this.addRule({
+      userAgent: 'WhatsApp',
+      allow: ['/']
+    });
+
+    // Add sitemaps for both domains
     this.addSitemap(`${this.baseUrl}/sitemap.xml`);
+    this.addSitemap(`${this.alternateUrl}/sitemap.xml`);
   }
 
   /**
    * Generate robots.txt content
    */
   generateRobotsTxt(): string {
-    let content = `# Robots.txt for Octa Node Engineering\n`;
-    content += `# ${this.baseUrl}\n\n`;
+    let content = `# Robots.txt for Octa Node Engineering (OctaNode)\n`;
+    content += `# Primary: ${this.baseUrl}\n`;
+    content += `# Alternate: ${this.alternateUrl}\n\n`;
 
     // Add rules
     this.rules.forEach(rule => {
@@ -113,7 +164,11 @@ export class RobotsGenerator {
       this.sitemaps.forEach(sitemap => {
         content += `Sitemap: ${sitemap}\n`;
       });
+      content += '\n';
     }
+
+    // Add Host directive
+    content += `# Preferred host\nHost: ${this.baseUrl}\n`;
 
     return content;
   }
