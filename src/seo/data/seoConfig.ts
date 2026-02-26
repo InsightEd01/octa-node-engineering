@@ -20,11 +20,11 @@ export const seoConfig: SEOConfig = {
     'AI consulting Nigeria',
     'Octa Node Engineering'
   ],
-  siteUrl: 'https://octanode.online',
+  siteUrl: import.meta.env.VITE_SITE_URL || 'https://octanode.online',
   defaultImage: '/assets/logo.png',
   twitterHandle: '@OctaNodeEng',
-  gaTrackingId: 'G-XXXXXXXXXX', // Replace with actual GA4 measurement ID
-  googleSiteVerification: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', // Add verification code here
+  gaTrackingId: import.meta.env.VITE_GA_TRACKING_ID || 'G-XXXXXXXXXX',
+  googleSiteVerification: import.meta.env.VITE_GOOGLE_SITE_VERIFICATION || '',
   // facebookAppId: 'your-facebook-app-id' // Uncomment and add if available
 };
 
@@ -46,7 +46,7 @@ export const pageSEOConfig = {
       'Octa Node Engineering'
     ]
   },
-  
+
   products: {
     title: 'Our AI Products - Stylus AI & TI-BOT',
     description: 'Discover our innovative AI products: Stylus AI for educational enhancement and TI-BOT for school automation. Advanced AI solutions for modern businesses.',
@@ -62,25 +62,25 @@ export const pageSEOConfig = {
       'IoT school automation'
     ]
   },
-  
+
   about: {
     title: 'About Octa Node Engineering - AI Innovation Leaders',
     description: 'Learn about Octa Node Engineering, Nigeria\'s leading AI solutions provider. Our mission is to transform businesses through innovative artificial intelligence technology.',
     keywords: ['Octa Node Engineering', 'AI company Nigeria', 'artificial intelligence consulting', 'AI innovation']
   },
-  
+
   contact: {
     title: 'Contact Us - Get AI Solutions for Your Business',
     description: 'Contact Octa Node Engineering for AI solutions consultation. Located in Nigeria, we provide AI services globally. Get in touch for your AI transformation.',
     keywords: ['contact AI company', 'AI consultation', 'AI services Nigeria', 'business AI solutions', 'AI partner Nigeria']
   },
-  
+
   privacy: {
     title: 'Privacy Policy - Octa Node Engineering',
     description: 'Privacy policy for Octa Node Engineering. Learn how we protect your data and privacy when using our AI solutions and services.',
     keywords: ['privacy policy', 'data protection', 'AI privacy']
   },
-  
+
   terms: {
     title: 'Terms of Service - Octa Node Engineering',
     description: 'Terms of service for Octa Node Engineering AI solutions. Read our terms and conditions for using our AI products and services.',
