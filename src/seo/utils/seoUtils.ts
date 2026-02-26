@@ -60,7 +60,7 @@ export const getPageSEO = (pageName: keyof typeof pageSEOConfig) => {
  */
 export const generateProductSEO = (productName: string, productDescription: string) => {
   const title = `${productName} - AI Solution by Octa Node Engineering (OctaNode)`;
-  const description = `${productDescription} Discover how ${productName} by Octa Node Engineering can transform your business with advanced AI technology. Available at octanode.online and octnode.co.`;
+  const description = `${productDescription} Discover how ${productName} by Octa Node Engineering can transform your business with advanced AI technology. Available at octanode.online and octanode.co.`;
   const keywords = [
     productName,
     `${productName} AI`,
@@ -71,7 +71,7 @@ export const generateProductSEO = (productName: string, productDescription: stri
     'Octa Node Engineering',
     'OctaNode',
     'octanode.online',
-    'octnode.co'
+    'octanode.co'
   ];
 
   return {
@@ -94,7 +94,7 @@ export const createCanonicalUrl = (path: string): string => {
  */
 export const createAlternateUrl = (path: string): string => {
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
-  return `https://octnode.co${cleanPath}`;
+  return `https://octanode.co${cleanPath}`;
 };
 
 /**
@@ -106,7 +106,7 @@ export const generateOrganizationStructuredData = () => {
     "@type": "Organization",
     "@id": `${seoConfig.siteUrl}/#organization`,
     "name": "Octa Node Engineering",
-    "alternateName": ["OctaNode", "Octa Node", "Octa-Node Engineering", "octnode"],
+    "alternateName": ["OctaNode", "Octa Node", "Octa-Node Engineering", "octanode"],
     "description": "Octa Node Engineering (OctaNode) is Nigeria's leading AI solutions provider. We build Stylus AI for automated exam grading and TI-BOT for smart school bell systems. Transforming education and business through AI.",
     "url": seoConfig.siteUrl,
     "logo": `${seoConfig.siteUrl}${seoConfig.defaultImage}`,
@@ -135,7 +135,7 @@ export const generateOrganizationStructuredData = () => {
       "longitude": 4.8354
     },
     "sameAs": [
-      "https://octnode.co",
+      "https://octanode.co",
       "https://octanode.online",
       "https://twitter.com/OctaNodeEng",
       "https://linkedin.com/company/octa-node-engineering",

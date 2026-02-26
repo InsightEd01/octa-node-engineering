@@ -14,7 +14,7 @@ export class SitemapGenerator {
   private alternateUrl: string;
   private currentDate: string;
 
-  constructor(baseUrl: string = 'https://octanode.online', alternateUrl: string = 'https://octnode.co') {
+  constructor(baseUrl: string = 'https://octanode.online', alternateUrl: string = 'https://octanode.co') {
     this.baseUrl = baseUrl.replace(/\/$/, '');
     this.alternateUrl = alternateUrl.replace(/\/$/, '');
     this.currentDate = new Date().toISOString().split('T')[0];

@@ -55,7 +55,7 @@ export const organizationStructuredData: OrganizationData = {
     postalCode: '351101'
   },
   sameAs: [
-    'https://octnode.co',
+    'https://octanode.co',
     'https://octanode.online',
     'https://linkedin.com/company/octa-node-engineering',
     'https://twitter.com/OctaNodeEng',
@@ -283,7 +283,7 @@ export const localBusinessStructuredData: LocalBusinessData = {
     ]
   },
   sameAs: [
-    'https://octnode.co',
+    'https://octanode.co',
     'https://octanode.online',
     'https://linkedin.com/company/octa-node-engineering',
     'https://twitter.com/OctaNodeEng',

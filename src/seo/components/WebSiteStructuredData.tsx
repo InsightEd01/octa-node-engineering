@@ -8,7 +8,7 @@ const WebSiteStructuredData: React.FC = () => {
     '@id': `${seoConfig.siteUrl}/#website`,
     url: seoConfig.siteUrl,
     name: 'Octa Node Engineering',
-    alternateName: ['OctaNode', 'Octa Node', 'Octa-Node Engineering', 'octnode', 'octanode', 'octnode.co', 'octanode.online'],
+    alternateName: ['OctaNode', 'Octa Node', 'Octa-Node Engineering', 'octanode', 'octanode', 'octanode.co', 'octanode.online'],
     description: 'Octa Node Engineering (OctaNode) - Nigeria\'s leading AI solutions provider. Creators of Stylus AI and TI-BOT.',
     publisher: {
       '@type': 'Organization',

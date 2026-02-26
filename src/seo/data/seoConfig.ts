@@ -12,12 +12,12 @@ export const seoConfig: SEOConfig = {
     'OctaNode Engineering',
     'Octa-Node Engineering',
     'Octa-Node',
-    'octnode',
+    'octanode',
     'octanode',
     'octa node',
     'oct node',
     'octanode.online',
-    'octnode.co',
+    'octanode.co',
     'octanodeengineering',
     'octa node eng',
 
@@ -159,9 +159,9 @@ export const pageSEOConfig = {
       'TI-BOT',
       'Octa Node Engineering',
       'OctaNode',
-      'octnode',
+      'octanode',
       'octanode.online',
-      'octnode.co',
+      'octanode.co',
       'best AI company Nigeria',
       'top AI solutions Africa',
       'edtech Nigeria',
@@ -210,7 +210,7 @@ export const pageSEOConfig = {
       'AI startup Nigeria',
       'Nigerian AI company',
       'octanode.online',
-      'octnode.co',
+      'octanode.co',
       'AI team Nigeria',
       'AI founders Nigeria'
     ]
@@ -233,7 +233,7 @@ export const pageSEOConfig = {
       'AI company phone number',
       'AI company email',
       'octanode contact',
-      'octnode contact'
+      'octanode contact'
     ]
   },
 

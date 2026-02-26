@@ -11,7 +11,7 @@ export class RobotsGenerator {
   private rules: RobotsRule[];
   private sitemaps: string[];
 
-  constructor(baseUrl: string = 'https://octanode.online', alternateUrl: string = 'https://octnode.co') {
+  constructor(baseUrl: string = 'https://octanode.online', alternateUrl: string = 'https://octanode.co') {
     this.baseUrl = baseUrl.replace(/\/$/, '');
     this.alternateUrl = alternateUrl.replace(/\/$/, '');
     this.rules = [];

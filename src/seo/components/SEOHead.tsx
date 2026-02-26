@@ -29,7 +29,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   const finalCanonical = canonical || finalUrl;
 
   // Generate alternate URL for the other domain
-  const alternateUrl = finalCanonical.replace('octanode.online', 'octnode.co');
+  const alternateUrl = finalCanonical.replace('octanode.online', 'octanode.co');
 
   // Generate social media optimized image
   const socialImage = image || generateSocialImage({

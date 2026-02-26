@@ -1,6 +1,6 @@
 # Robots.txt for Octa Node Engineering
 # Primary: https://octanode.online
-# Alternate: https://octnode.co
+# Alternate: https://octanode.co
 
 # Allow all search engines to crawl the site
 User-agent: *
@@ -70,7 +70,7 @@ Allow: /
 
 # Sitemap locations
 Sitemap: https://octanode.online/sitemap.xml
-Sitemap: https://octnode.co/sitemap.xml
+Sitemap: https://octanode.co/sitemap.xml
 
 # Host
 Host: https://octanode.online
