@@ -14,7 +14,7 @@ const products = [
 ];
 
 class RobotsGenerator {
-  constructor(baseUrl = 'https://octanode.online') {
+  constructor(baseUrl = 'https://octanode.co') {
     this.baseUrl = baseUrl.replace(/\/$/, ''); // Remove trailing slash
   }
 
@@ -66,7 +66,7 @@ class RobotsGenerator {
 }
 
 class SitemapGenerator {
-  constructor(baseUrl = 'https://octanode.online') {
+  constructor(baseUrl = 'https://octanode.co') {
     this.baseUrl = baseUrl.replace(/\/$/, ''); // Remove trailing slash
     this.currentDate = new Date().toISOString().split('T')[0]; // YYYY-MM-DD format
   }
@@ -112,7 +112,7 @@ class SitemapGenerator {
 
   generateXMLSitemap() {
     const urls = this.generateSitemapUrls();
-    
+
     let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
     xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 
@@ -126,7 +126,7 @@ class SitemapGenerator {
     });
 
     xml += '</urlset>';
-    
+
     return xml;
   }
 }
@@ -148,11 +148,11 @@ try {
   // Write sitemap to public directory
   writeFileSync(publicSitemapPath, sitemapContent, 'utf8');
   console.log('✅ Sitemap generated successfully at public/sitemap.xml');
-  
+
   // Write robots.txt to public directory
   writeFileSync(publicRobotsPath, robotsContent, 'utf8');
   console.log('✅ Robots.txt generated successfully at public/robots.txt');
-  
+
   // Also write to dist directory if it exists
   try {
     writeFileSync(distSitemapPath, sitemapContent, 'utf8');
@@ -162,19 +162,19 @@ try {
     // dist directory might not exist during development, that's okay
     console.log('ℹ️  dist directory not found, files written to public directory only');
   }
-  
+
   console.log('\n📄 Generated sitemap with the following URLs:');
   const urls = sitemapGenerator.generateSitemapUrls();
   urls.forEach(url => {
     console.log(`  - ${url.loc} (priority: ${url.priority})`);
   });
-  
+
   console.log('\n🤖 Generated robots.txt with proper crawling directives');
   console.log('   - Allows crawling of public pages');
   console.log('   - Blocks admin routes and sensitive areas');
   console.log('   - Includes sitemap location');
   console.log('   - Sets crawl delay for respectful crawling');
-  
+
 } catch (error) {
   console.error('❌ Error generating files:', error);
   process.exit(1);

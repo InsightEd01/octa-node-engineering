@@ -71,7 +71,9 @@ export const generateProductSEO = (productName: string, productDescription: stri
     'Octa Node Engineering',
     'OctaNode',
     'octanode.online',
-    'octanode.co'
+    'octanode.co',
+    'stylus.octanode.online',
+    'stylus.octanode.co'
   ];
 
   return {
@@ -245,7 +247,7 @@ export const generateSoftwareApplicationStructuredData = (
     creator: {
       '@type': 'Organization',
       name: 'Octa Node Engineering',
-      url: 'https://octanode.online',
+      url: 'https://octanode.co',
     },
   };
 };

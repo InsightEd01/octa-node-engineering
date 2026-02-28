@@ -61,8 +61,8 @@ What sets Stylus AI apart is its ability to maintain the human touch in educatio
       compatibility: 'All modern browsers, iOS, Android',
       requirements: 'Internet connection, camera/scanner for document input'
     },
-    appUrl: 'https://stylusaipro.netlify.app',
-    demoUrl: 'https://stylusaipro.netlify.app',
+    appUrl: 'https://stylus.octanode.online',
+    demoUrl: 'https://stylus.octanode.co',
     category: 'Education Technology',
     launchDate: '2024'
   },

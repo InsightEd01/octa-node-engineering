@@ -7,9 +7,9 @@ export const organizationStructuredData: OrganizationData = {
   name: 'Octa Node Engineering',
   alternateName: 'OctaNode',
   description: 'Octa Node Engineering (OctaNode) is Nigeria\'s leading AI solutions provider. We build Stylus AI for automated exam grading and handwriting recognition, and TI-BOT for smart school bell and time management systems. Transforming education and business through artificial intelligence.',
-  url: 'https://octanode.online',
-  logo: 'https://octanode.online/assets/logo.png',
-  image: 'https://octanode.online/assets/logo.png',
+  url: 'https://octanode.co',
+  logo: 'https://octanode.co/assets/logo.png',
+  image: 'https://octanode.co/assets/logo.png',
   foundingDate: '2020',
   industry: 'Artificial Intelligence',
   knowsAbout: [
@@ -101,8 +101,8 @@ export const stylusAIStructuredData: ProductData = {
   name: 'Stylus AI',
   description: 'Stylus AI is an advanced AI-powered exam grading and handwriting marking system by Octa Node Engineering. It accurately marks theory questions, essays, and all kinds of handwritten tests using artificial intelligence, saving educators countless hours and providing instant, consistent feedback. Used by schools and educational institutions across Nigeria.',
   image: [
-    'https://octanode.online/assets/stylus1.png',
-    'https://octanode.online/assets/stylus2.png'
+    'https://octanode.co/assets/stylus1.png',
+    'https://octanode.co/assets/stylus2.png'
   ],
   brand: {
     '@type': 'Brand',
@@ -127,7 +127,7 @@ export const stylusAIStructuredData: ProductData = {
   offers: {
     '@type': 'Offer',
     availability: 'https://schema.org/InStock',
-    url: 'https://stylusaipro.netlify.app',
+    url: 'https://stylus.octanode.online',
     seller: {
       '@type': 'Organization',
       name: 'Octa Node Engineering'
@@ -148,7 +148,7 @@ export const tibotStructuredData: ProductData = {
   '@type': 'Product',
   name: 'TI-BOT',
   description: 'TI-BOT is an AI-enabled smart school bell and time management system by Octa Node Engineering. It replaces traditional bells in schools with intelligent scheduling, multi-zone announcements, emergency broadcasts, and IoT-powered automation. Perfect for modern schools and educational institutions in Nigeria.',
-  image: ['https://octanode.online/assets/Tibot.png'],
+  image: ['https://octanode.co/assets/Tibot.png'],
   brand: {
     '@type': 'Brand',
     name: 'Octa Node Engineering',
@@ -192,11 +192,11 @@ export const tibotStructuredData: ProductData = {
 export const localBusinessStructuredData: LocalBusinessData = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  '@id': 'https://octanode.online/#organization',
+  '@id': 'https://octanode.co/#organization',
   name: 'Octa Node Engineering',
   alternateName: 'OctaNode',
   description: 'Octa Node Engineering (OctaNode) is Ondo State\'s premier AI solutions company, specializing in artificial intelligence products for automated exam grading (Stylus AI), smart school bell systems (TI-BOT), AI consulting, and digital transformation for businesses and educational institutions in Nigeria and Africa.',
-  url: 'https://octanode.online',
+  url: 'https://octanode.co',
   telephone: '+2349028267223',
   email: 'info@octanode.online',
   address: {

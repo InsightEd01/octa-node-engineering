@@ -334,7 +334,7 @@ function App() {
                           <LocalBusinessStructuredData />
                           {/* Breadcrumbs for Home */}
                           <StructuredData data={generateBreadcrumbStructuredData([
-                            { name: 'Home', url: 'https://octanode.online/' }
+                            { name: 'Home', url: 'https://octanode.co/' }
                           ])} />
 
                           <section id="home" className="hero">
@@ -545,8 +545,8 @@ function App() {
                       <Route path="/product/:productId" element={
                         <>
                           <StructuredData data={generateBreadcrumbStructuredData([
-                            { name: 'Home', url: 'https://octanode.online/' },
-                            { name: 'Products', url: 'https://octanode.online/#products' }
+                            { name: 'Home', url: 'https://octanode.co/' },
+                            { name: 'Products', url: 'https://octanode.co/#products' }
                           ])} />
                           <LazyProductPage />
                         </>
@@ -554,8 +554,8 @@ function App() {
                       <Route path="/privacy" element={
                         <>
                           <StructuredData data={generateBreadcrumbStructuredData([
-                            { name: 'Home', url: 'https://octanode.online/' },
-                            { name: 'Privacy Policy', url: 'https://octanode.online/privacy' }
+                            { name: 'Home', url: 'https://octanode.co/' },
+                            { name: 'Privacy Policy', url: 'https://octanode.co/privacy' }
                           ])} />
                           <LazyPrivacy />
                         </>
@@ -563,8 +563,8 @@ function App() {
                       <Route path="/terms" element={
                         <>
                           <StructuredData data={generateBreadcrumbStructuredData([
-                            { name: 'Home', url: 'https://octanode.online/' },
-                            { name: 'Terms & Conditions', url: 'https://octanode.online/terms' }
+                            { name: 'Home', url: 'https://octanode.co/' },
+                            { name: 'Terms & Conditions', url: 'https://octanode.co/terms' }
                           ])} />
                           <LazyTerms />
                         </>
@@ -572,8 +572,8 @@ function App() {
                       <Route path="/blog" element={
                         <>
                           <StructuredData data={generateBreadcrumbStructuredData([
-                            { name: 'Home', url: 'https://octanode.online/' },
-                            { name: 'Blog', url: 'https://octanode.online/blog' }
+                            { name: 'Home', url: 'https://octanode.co/' },
+                            { name: 'Blog', url: 'https://octanode.co/blog' }
                           ])} />
                           <LazyBlog />
                         </>

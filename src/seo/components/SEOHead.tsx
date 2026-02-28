@@ -25,11 +25,14 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   const finalTitle = generateTitle(title);
   const finalDescription = generateDescription(description);
   const finalKeywords = generateKeywords(keywords);
+  const currentPath = typeof window !== 'undefined' ? window.location.pathname + window.location.search : '';
+  const defaultCanonical = `${seoConfig.siteUrl.replace(/\/$/, '')}${currentPath}`;
+
   const finalUrl = url || (typeof window !== 'undefined' ? window.location.href : seoConfig.siteUrl);
-  const finalCanonical = canonical || finalUrl;
+  const finalCanonical = canonical || defaultCanonical;
 
   // Generate alternate URL for the other domain
-  const alternateUrl = finalCanonical.replace('octanode.online', 'octanode.co');
+  const alternateUrl = finalCanonical.replace('octanode.co', 'octanode.online');
 
   // Generate social media optimized image
   const socialImage = image || generateSocialImage({

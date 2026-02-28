@@ -134,7 +134,7 @@ export const seoConfig: SEOConfig = {
     'hire AI company Nigeria',
     'AI software development Nigeria'
   ],
-  siteUrl: import.meta.env.VITE_SITE_URL || 'https://octanode.online',
+  siteUrl: import.meta.env.VITE_SITE_URL || 'https://octanode.co',
   defaultImage: '/assets/logo.png',
   twitterHandle: '@OctaNodeEng',
   gaTrackingId: import.meta.env.VITE_GA_TRACKING_ID || 'G-XXXXXXXXXX',
@@ -162,6 +162,8 @@ export const pageSEOConfig = {
       'octanode',
       'octanode.online',
       'octanode.co',
+      'stylus.octanode.online',
+      'stylus.octanode.co',
       'best AI company Nigeria',
       'top AI solutions Africa',
       'edtech Nigeria',
