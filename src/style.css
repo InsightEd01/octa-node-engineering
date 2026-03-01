@@ -697,6 +697,14 @@ section h2::after {
     z-index: -1;
 }
 
+.hero-visual .glass-panel {
+    width: 100%;
+    max-width: 600px;
+    /* limits the overall carousel width safely */
+    padding: 15px;
+    box-sizing: border-box;
+}
+
 .hero-logo {
     max-width: 85%;
     height: auto;
