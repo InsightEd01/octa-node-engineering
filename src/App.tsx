@@ -226,7 +226,8 @@ function App() {
 
   // Initialize Google Analytics
   useEffect(() => {
-    if (import.meta.env.PROD) {
+    // Only initialize if we have a real tracking ID
+    if (import.meta.env.PROD && seoConfig.gaTrackingId && !seoConfig.gaTrackingId.includes('XXXXX')) {
       // Load Google Analytics script
       const script = document.createElement('script');
       script.src = `https://www.googletagmanager.com/gtag/js?id=${seoConfig.gaTrackingId}`;
