@@ -10,6 +10,14 @@ const products = [
   {
     id: 'ti-bot',
     name: 'TI-BOT'
+  },
+  {
+    id: 'dresscode',
+    name: 'DressCode'
+  },
+  {
+    id: 'workspot',
+    name: 'WorkSpot'
   }
 ];
 
@@ -32,6 +40,9 @@ class RobotsGenerator {
 
     content += `# Allow specific important pages\n`;
     content += `Allow: /\n`;
+    content += `Allow: /ai/\n`;
+    content += `Allow: /ai/*\n`;
+    content += `Allow: /llms.txt\n`;
     content += `Allow: /product/\n`;
     content += `Allow: /product/*\n`;
     content += `Allow: /privacy\n`;
@@ -54,9 +65,20 @@ class RobotsGenerator {
     content += `Disallow: /admin/\n`;
     content += `Crawl-delay: 1\n\n`;
 
-    content += `# Block any potential scraping bots from sensitive areas\n`;
+    content += `User-agent: GPTBot\n`;
+    content += `Allow: /\n`;
+    content += `Disallow: /admin/\n\n`;
+
+    content += `User-agent: ChatGPT-User\n`;
+    content += `Allow: /\n`;
+    content += `Disallow: /admin/\n\n`;
+
+    content += `User-agent: ClaudeBot\n`;
+    content += `Allow: /\n`;
+    content += `Disallow: /admin/\n\n`;
+
+    content += `# Block sensitive areas\n`;
     content += `User-agent: *\n`;
-    content += `Disallow: /*.json$\n`;
     content += `Disallow: /api/\n`;
     content += `Disallow: /_*\n`;
     content += `Disallow: /.*\n`;
@@ -94,6 +116,8 @@ class SitemapGenerator {
 
     // Static pages - medium priority
     const staticPages = [
+      { path: '/ai/', changefreq: 'weekly', priority: 0.9 },
+      { path: '/llms.txt', changefreq: 'weekly', priority: 0.7 },
       { path: '/privacy', changefreq: 'yearly', priority: 0.3 },
       { path: '/terms', changefreq: 'yearly', priority: 0.3 }
     ];

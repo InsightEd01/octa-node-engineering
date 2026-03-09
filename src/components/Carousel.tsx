@@ -2,9 +2,6 @@ import React from 'react';
 import Slider from 'react-slick';
 import LazyImage from './LazyImage';
 
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
 // Import hero carousel images
 import heroImg1 from '../../assets/hero-carousol/1.jpg';
 import heroImg2 from '../../assets/hero-carousol/2.jpg';

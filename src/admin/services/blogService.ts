@@ -1,62 +1,8 @@
 import { BlogPost, BlogFormData, BlogFilters, BlogListResponse } from '../types/blog';
-
-// Mock blog data
-const mockBlogPosts: BlogPost[] = [
-  {
-    id: 'blog-1',
-    title: 'Getting Started with Digital Stylus Technology',
-    slug: 'getting-started-digital-stylus',
-    content: '<h2>Introduction to Digital Stylus</h2><p>Digital stylus technology has revolutionized the way we interact with touchscreen devices...</p>',
-    excerpt: 'Learn about the fundamentals of digital stylus technology and how it can enhance your creative workflow.',
-    featured_image: '/assets/stylus1.png',
-    author_id: 'admin-1',
-    author_name: 'Admin User',
-    status: 'published',
-    published_at: '2024-01-15T10:00:00Z',
-    created_at: '2024-01-10T09:00:00Z',
-    updated_at: '2024-01-15T10:00:00Z',
-    tags: ['technology', 'stylus', 'tutorial'],
-    meta_title: 'Getting Started with Digital Stylus Technology - Octa Node',
-    meta_description: 'Complete guide to digital stylus technology for beginners and professionals.'
-  },
-  {
-    id: 'blog-2',
-    title: 'Advanced Stylus Techniques for Professionals',
-    slug: 'advanced-stylus-techniques',
-    content: '<h2>Professional Stylus Usage</h2><p>For professionals working in design and digital art...</p>',
-    excerpt: 'Discover advanced techniques and tips for professional stylus usage in creative applications.',
-    featured_image: '/assets/stylus2.png',
-    author_id: 'admin-1',
-    author_name: 'Admin User',
-    status: 'draft',
-    published_at: null,
-    created_at: '2024-01-20T14:30:00Z',
-    updated_at: '2024-01-22T16:45:00Z',
-    tags: ['advanced', 'professional', 'techniques'],
-    meta_title: 'Advanced Stylus Techniques for Creative Professionals',
-    meta_description: 'Master advanced stylus techniques to enhance your professional creative workflow.'
-  },
-  {
-    id: 'blog-3',
-    title: 'Future of Touch Technology',
-    slug: 'future-touch-technology',
-    content: '<h2>The Evolution of Touch</h2><p>Touch technology continues to evolve at a rapid pace...</p>',
-    excerpt: 'Explore the future trends and innovations in touch technology and digital interaction.',
-    author_id: 'admin-1',
-    author_name: 'Admin User',
-    status: 'scheduled',
-    published_at: null,
-    scheduled_for: '2024-02-01T12:00:00Z',
-    created_at: '2024-01-25T11:15:00Z',
-    updated_at: '2024-01-25T11:15:00Z',
-    tags: ['future', 'innovation', 'technology'],
-    meta_title: 'The Future of Touch Technology - What\'s Next?',
-    meta_description: 'Discover upcoming innovations and trends in touch technology and digital interfaces.'
-  }
-];
+import { siteBlogPosts } from '../../data/blogPosts';
 
 class BlogService {
-  private posts: BlogPost[] = [...mockBlogPosts];
+  private posts: BlogPost[] = [...siteBlogPosts];
 
   async getPosts(
     page: number = 1,

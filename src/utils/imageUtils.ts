@@ -78,6 +78,18 @@ export const generateAltText = (
       hero: 'TI-BOT transforming school communication and scheduling',
       thumbnail: 'TI-BOT product preview showing smart scheduling features'
     },
+    'DressCode': {
+      screenshot: 'DressCode fashion marketplace and social commerce interface',
+      logo: 'DressCode - Nigerian fashion social commerce platform',
+      hero: 'DressCode connecting fashion shoppers, creators, and designers',
+      thumbnail: 'DressCode product preview showing marketplace and AI try-on features'
+    },
+    'WorkSpot': {
+      screenshot: 'WorkSpot workforce attendance and live operations dashboard',
+      logo: 'WorkSpot - Smart attendance and workforce operations platform',
+      hero: 'WorkSpot automating verified attendance and team monitoring',
+      thumbnail: 'WorkSpot product preview showing attendance and live ops features'
+    },
     'Octa Node Engineering': {
       screenshot: 'Octa Node Engineering AI solutions dashboard',
       logo: 'Octa Node Engineering - Leading AI Solutions Provider in Nigeria',

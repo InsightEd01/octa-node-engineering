@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { products } from '../../data/products';
+import { siteBlogPosts } from '../../data/blogPosts';
 
 interface DashboardStats {
   products: { total: number; published: number; drafts: number };
@@ -35,10 +37,13 @@ const DashboardPage: React.FC = () => {
   useEffect(() => {
     // Simulate loading stats from API
     const loadStats = async () => {
+      const publishedBlogCount = siteBlogPosts.filter((post) => post.status === 'published').length;
+      const draftBlogCount = siteBlogPosts.filter((post) => post.status === 'draft').length;
+
       // This would be replaced with actual API calls
       setStats({
-        products: { total: 2, published: 2, drafts: 0 },
-        blog: { total: 3, published: 2, drafts: 1 },
+        products: { total: products.length, published: products.length, drafts: 0 },
+        blog: { total: siteBlogPosts.length, published: publishedBlogCount, drafts: draftBlogCount },
         messages: { total: 5, unread: 2, replied: 3 },
         subscribers: { total: 47, active: 45, thisMonth: 12 },
         carousel: { total: 4, active: 3 },

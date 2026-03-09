@@ -3,7 +3,7 @@ import { SEOConfig } from '../types';
 export const seoConfig: SEOConfig = {
   defaultTitle: 'Octa Node Engineering - AI Solutions for Business, Education & Automation',
   titleTemplate: '%s | Octa Node Engineering',
-  defaultDescription: 'Octa Node Engineering (OctaNode) is Nigeria\'s leading AI solutions provider. Offering Stylus AI for automated exam grading & handwriting marking, and TI-BOT for smart school bell & time management. Transform education and business with cutting-edge artificial intelligence.',
+  defaultDescription: 'Octa Node Engineering (OctaNode) builds practical software including Stylus AI for exam grading, TI-BOT for time management, DressCode for fashion commerce, WorkSpot for workforce attendance, and cooperative banking software.',
   defaultKeywords: [
     // ── Brand keywords ──
     'Octa Node Engineering',
@@ -70,6 +70,30 @@ export const seoConfig: SEOConfig = {
     'AI homework grading',
     'smart grading system',
     'digital exam marking',
+
+    // ── Product keywords – DressCode ──
+    'DressCode',
+    'dresscode',
+    'DressCode app',
+    'fashion social commerce',
+    'fashion marketplace Nigeria',
+    'AI virtual try on',
+    'virtual fitting room Nigeria',
+    'bespoke tailoring app',
+    'fashion creators platform',
+    'tailor marketplace Nigeria',
+
+    // ── Product keywords – WorkSpot ──
+    'WorkSpot',
+    'workspot',
+    'smart attendance app',
+    'attendance management software',
+    'geo fencing attendance',
+    'biometric attendance app',
+    'workforce operations platform',
+    'payroll export attendance app',
+    'team attendance tracking',
+    'employee check in app',
 
     // ── Product keywords – TI-BOT ──
     'TI-BOT',
@@ -146,7 +170,7 @@ export const seoConfig: SEOConfig = {
 export const pageSEOConfig = {
   home: {
     title: 'Octa Node Engineering - AI Solutions for Business, Education & Automation in Nigeria',
-    description: 'Octa Node Engineering (OctaNode) builds AI-powered tools for education & business. Stylus AI grades exams with handwriting recognition. TI-BOT automates school bells. Leading AI company in Nigeria.',
+    description: 'Octa Node Engineering (OctaNode) builds practical software for education, workforce operations, timed operations, fashion commerce, and cooperative banking workflows. Stylus AI grades captured handwritten exam scripts in seconds, TI-BOT manages time, DressCode powers fashion commerce, and WorkSpot automates attendance.',
     keywords: [
       'AI solutions for business',
       'AI solutions Nigeria',
@@ -157,6 +181,8 @@ export const pageSEOConfig = {
       'AI for schools Nigeria',
       'Stylus AI',
       'TI-BOT',
+      'DressCode',
+      'WorkSpot',
       'Octa Node Engineering',
       'OctaNode',
       'octanode',
@@ -174,15 +200,21 @@ export const pageSEOConfig = {
   },
 
   products: {
-    title: 'AI Products by Octa Node Engineering - Stylus AI & TI-BOT',
-    description: 'Explore AI products by Octa Node Engineering: Stylus AI for automated handwriting marking & exam grading, and TI-BOT for smart school bell & time management systems. AI-powered EdTech solutions.',
+    title: 'Products by Octa Node Engineering - Stylus AI, TI-BOT, DressCode & WorkSpot',
+    description: 'Explore Octa Node Engineering products: Stylus AI for exam grading, TI-BOT for time management, DressCode for fashion social commerce, and WorkSpot for smart attendance and workforce operations.',
     keywords: [
       'Stylus AI',
       'TI-BOT',
+      'DressCode',
+      'WorkSpot',
       'AI products',
       'AI products Nigeria',
       'educational AI',
       'school management AI',
+      'fashion commerce platform',
+      'virtual try on app',
+      'attendance management software',
+      'workforce operations platform',
       'AI handwriting marking system',
       'AI exam marking tool',
       'automated exam grading',
@@ -199,7 +231,7 @@ export const pageSEOConfig = {
 
   about: {
     title: 'About Octa Node Engineering (OctaNode) - AI Innovation Leaders in Nigeria',
-    description: 'Octa Node Engineering (OctaNode) is Nigeria\'s leading AI solutions company based in Ondo State. We build Stylus AI and TI-BOT to transform education and business through innovative artificial intelligence.',
+    description: 'Octa Node Engineering (OctaNode) is Nigeria\'s software and AI company based in Ondo State. We build Stylus AI, TI-BOT, DressCode, WorkSpot, and other products that transform education, commerce, and business operations.',
     keywords: [
       'Octa Node Engineering',
       'OctaNode',
@@ -220,7 +252,7 @@ export const pageSEOConfig = {
 
   contact: {
     title: 'Contact Octa Node Engineering - Get AI Solutions for Your Business',
-    description: 'Contact Octa Node Engineering (OctaNode) for AI solutions consultation. Located in Ondo State, Nigeria. Call +234 902 826 7223 or email info@octanode.online for AI products and services.',
+    description: 'Contact Octa Node Engineering (OctaNode) for AI solutions consultation. Located in Ondo State, Nigeria. Call +234 902 826 7223 or email info@octanode.co for AI products and services.',
     keywords: [
       'contact Octa Node Engineering',
       'contact OctaNode',

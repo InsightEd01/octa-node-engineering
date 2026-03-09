@@ -1,0 +1,46 @@
+# Octa Node Engineering
+
+Canonical site: https://octanode.co/
+Mirror site: https://octanode.online/
+AI access page: https://octanode.co/ai/
+Machine-readable catalog: https://octanode.co/ai/catalog.json
+Sitemap: https://octanode.co/sitemap.xml
+
+Octa Node Engineering builds practical software for education, timed operations, workforce management, fashion commerce, and cooperative banking workflows from Ondo State, Nigeria.
+
+Primary contact
+- Email: info@octanode.co
+- Support: support@octanode.co
+- Phone: +234 902 826 7223
+- Address: No 14 Oluwatoyin Off Gani, By Ademulegun Road, Ondo State, Nigeria
+
+Products
+- Stylus AI
+  - Product page: https://octanode.co/product/stylus-ai
+  - App: https://stylus.octanode.online
+  - Demo: https://stylus.octanode.co
+  - Summary: Examination grading software that grades captured handwritten exam scripts in seconds with consistent scoring.
+
+- TI-BOT
+  - Product page: https://octanode.co/product/ti-bot
+  - App: https://tibot-ai.netlify.app
+  - Summary: Smart school bell, time management, and announcement automation for schools and other organized environments.
+
+- DressCode
+  - Product page: https://octanode.co/product/dresscode
+  - Demo: https://dresscode-ten.vercel.app/
+  - Summary: Fashion social commerce platform for shopping, bespoke tailoring, creator monetization, and AI virtual try-on.
+
+- WorkSpot
+  - Product page: https://octanode.co/product/workspot
+  - App: https://play.google.com/store/search?q=workspot&c=apps
+  - Summary: Smart attendance and workforce operations platform with geo-fenced check-ins, biometric verification, and payroll-ready exports.
+
+Useful routes
+- Home: https://octanode.co/
+- AI access page: https://octanode.co/ai/
+- Privacy: https://octanode.co/privacy
+- Terms: https://octanode.co/terms
+
+Preferred machine-readable source
+- Use https://octanode.co/ai/catalog.json for structured company, product, and link data.

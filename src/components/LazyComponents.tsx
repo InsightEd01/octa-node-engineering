@@ -17,6 +17,14 @@ export const LazyBlog = lazy(() =>
   import('../pages/Blog').then(module => ({ default: module.default }))
 );
 
+export const LazyHeroCarousel = lazy(() =>
+  import('./Carousel').then(module => ({ default: module.default }))
+);
+
+export const LazyProductCarousel = lazy(() =>
+  import('./ProductCarousel').then(module => ({ default: module.default }))
+);
+
 export const LazyAdminRouter = lazy(() => 
   import('../admin/AdminRouter').then(module => ({ default: module.default }))
 );
@@ -36,7 +44,4 @@ export const preloadComponent = (componentImport: () => Promise<any>) => {
 export const preloadCriticalComponents = () => {
   // Preload ProductPage as it's commonly accessed
   preloadComponent(() => import('../pages/ProductPage'));
-  
-  // Preload ChatWidget as it's used on all pages
-  preloadComponent(() => import('./ChatWidget'));
 };

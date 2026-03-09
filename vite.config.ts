@@ -1,3 +1,4 @@
+import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
@@ -13,6 +14,14 @@ export default defineConfig({
 
     // Code splitting optimization
     rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        ai: resolve(__dirname, 'ai/index.html'),
+        stylusAi: resolve(__dirname, 'product/stylus-ai/index.html'),
+        tiBot: resolve(__dirname, 'product/ti-bot/index.html'),
+        dresscode: resolve(__dirname, 'product/dresscode/index.html'),
+        workspot: resolve(__dirname, 'product/workspot/index.html')
+      },
       output: {
         manualChunks: {
           // Vendor chunk for React and related libraries

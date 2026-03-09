@@ -49,6 +49,8 @@ export const useSEO = (initialSEO?: Partial<SEOProps>): UseSEOReturn => {
       pageName = 'about';
     } else if (pathname === '/contact') {
       pageName = 'contact';
+    } else if (pathname === '/blog') {
+      pageName = 'blog';
     } else if (pathname === '/privacy') {
       pageName = 'privacy';
     } else if (pathname === '/terms') {

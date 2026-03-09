@@ -95,10 +95,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       
       // TODO: Replace with actual API call to authentication service
       // For demo purposes, using hardcoded credentials
-      if (email === 'admin@octanode.online' && password === 'admin123') {
+      if (email === 'admin@octanode.co' && password === 'admin123') {
         const userData: User = {
           id: '1',
-          email: 'admin@octanode.online',
+          email: 'admin@octanode.co',
           role: 'admin',
           name: 'Admin User'
         };

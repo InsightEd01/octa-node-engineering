@@ -1,14 +1,9 @@
 import { preloadImages } from './imageUtils';
 import logoImg from '../../assets/logo.png';
-import heroImg1 from '../../assets/hero-carousol/1.jpg';
-import { stylus1Img, tibotImg } from '../data/products';
 
 // Critical images that should be preloaded
 const criticalImages = [
-  logoImg,
-  heroImg1, // First hero image
-  stylus1Img, // First product image
-  tibotImg // TI-BOT image
+  logoImg
 ];
 
 // Preload critical images on app initialization
@@ -24,14 +19,8 @@ export const preloadCriticalImages = async (): Promise<void> => {
 // Preload images for a specific section
 export const preloadSectionImages = async (section: 'hero' | 'products'): Promise<void> => {
   const sectionImages: Record<string, string[]> = {
-    hero: [
-      heroImg1,
-      // Add more hero images if needed for immediate preloading
-    ],
-    products: [
-      stylus1Img,
-      tibotImg
-    ]
+    hero: [],
+    products: []
   };
 
   try {

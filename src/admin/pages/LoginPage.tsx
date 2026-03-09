@@ -108,7 +108,7 @@ const LoginPage: React.FC = () => {
                   }
                 }}
                 className={errors.email ? 'error' : ''}
-                placeholder="admin@octanode.online"
+                placeholder="admin@octanode.co"
                 autoComplete="email"
               />
               {errors.email && <span className="field-error">{errors.email}</span>}
@@ -158,7 +158,7 @@ const LoginPage: React.FC = () => {
 
           <div className="login-footer">
             <p>Demo credentials:</p>
-            <p><strong>Email:</strong> admin@octanode.online</p>
+            <p><strong>Email:</strong> admin@octanode.co</p>
             <p><strong>Password:</strong> admin123</p>
           </div>
         </div>

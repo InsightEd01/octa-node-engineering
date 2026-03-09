@@ -9,7 +9,7 @@
   <title>Octa Node Engineering - AI Solutions for Business, Education & Automation | Nigeria</title>
   <meta name="title" content="Octa Node Engineering - AI Solutions for Business, Education & Automation | Nigeria">
   <meta name="description"
-    content="Octa Node Engineering (OctaNode) is Nigeria's leading AI company. Offering Stylus AI for automated exam grading & handwriting marking, and TI-BOT for smart school bell systems. Transform your business with AI.">
+    content="Octa Node Engineering (OctaNode) builds practical software including Stylus AI for exam grading, TI-BOT for time management, DressCode for fashion commerce, WorkSpot for smart attendance, and cooperative banking software.">
   <meta name="keywords"
     content="Octa Node Engineering, OctaNode, octanode, octanode.online, octanode.co, AI solutions Nigeria, Stylus AI, TI-BOT, AI exam grading, AI school bell, handwriting recognition AI, AI company Nigeria, EdTech Nigeria, AI consulting, business automation AI, artificial intelligence, machine learning, school technology, AI startup Nigeria, Octa Node, Octa-Node, octa node, octa nod engineering, automated exam grading, smart school bell, AI grading system, AI for schools, AI for education, best AI company Nigeria">
   <meta name="author" content="Octa Node Engineering">
@@ -37,20 +37,22 @@
   <meta name="ICBM" content="7.0906, 4.8354">
 
   <!-- Canonical URL -->
-  <link rel="canonical" href="https://octanode.online/">
+  <link rel="canonical" href="https://octanode.co/">
 
   <!-- Alternate domains / hreflang -->
-  <link rel="alternate" hreflang="en" href="https://octanode.online/">
   <link rel="alternate" hreflang="en" href="https://octanode.co/">
-  <link rel="alternate" hreflang="x-default" href="https://octanode.online/">
+  <link rel="alternate" hreflang="en" href="https://octanode.online/">
+  <link rel="alternate" hreflang="x-default" href="https://octanode.co/">
+  <link rel="alternate" type="text/plain" href="https://octanode.co/llms.txt" title="LLMs access file">
+  <link rel="alternate" type="application/json" href="https://octanode.co/ai/catalog.json" title="Machine-readable catalog">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://octanode.online/">
+  <meta property="og:url" content="https://octanode.co/">
   <meta property="og:title" content="Octa Node Engineering - AI Solutions for Business, Education & Automation">
   <meta property="og:description"
-    content="Nigeria's leading AI company. Stylus AI for automated exam grading. TI-BOT for smart school bells. Transform education and business with cutting-edge AI.">
-  <meta property="og:image" content="https://octanode.online/assets/logo.png">
+    content="Practical software from Nigeria. Stylus AI grades handwritten exam scripts in seconds, TI-BOT manages time, DressCode powers fashion commerce, WorkSpot automates attendance, and Octa Node also builds cooperative banking software.">
+  <meta property="og:image" content="https://octanode.co/assets/logo.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Octa Node Engineering - AI Solutions Provider">
@@ -59,11 +61,11 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://octanode.online/">
+  <meta name="twitter:url" content="https://octanode.co/">
   <meta name="twitter:title" content="Octa Node Engineering - AI Solutions for Business & Education">
   <meta name="twitter:description"
-    content="Nigeria's leading AI company. Stylus AI for exam grading. TI-BOT for smart school bells. Transform your business with AI.">
-  <meta name="twitter:image" content="https://octanode.online/assets/logo.png">
+    content="Stylus AI grades handwritten exam scripts in seconds, TI-BOT manages time, DressCode powers fashion commerce, and WorkSpot automates attendance and operations.">
+  <meta name="twitter:image" content="https://octanode.co/assets/logo.png">
   <meta name="twitter:image:alt" content="Octa Node Engineering Logo">
   <meta name="twitter:site" content="@OctaNodeEng">
   <meta name="twitter:creator" content="@OctaNodeEng">
@@ -83,21 +85,207 @@
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 
+  <style>
+    :root {
+      color-scheme: light;
+      --shell-bg: #f8fafc;
+      --shell-panel: rgba(255, 255, 255, 0.92);
+      --shell-text: #0f172a;
+      --shell-muted: #475569;
+      --shell-border: rgba(148, 163, 184, 0.28);
+      --shell-accent: #2563eb;
+    }
+
+    body {
+      margin: 0;
+      background: var(--shell-bg);
+      color: var(--shell-text);
+      font-family: 'Outfit', 'Poppins', sans-serif;
+    }
+
+    .shell-skip-link {
+      position: absolute;
+      left: 12px;
+      top: -48px;
+      padding: 10px 14px;
+      background: #fff;
+      color: var(--shell-text);
+      z-index: 10;
+    }
+
+    .shell-skip-link:focus {
+      top: 12px;
+    }
+
+    #app-shell {
+      position: relative;
+      z-index: 1;
+      padding: 24px;
+      transition: opacity 180ms ease;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 35%),
+        linear-gradient(180deg, #f8fafc 0%, #eef4ff 100%);
+    }
+
+    #app-shell[data-state="hidden"] {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .shell-wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .shell-header,
+    .shell-card {
+      background: var(--shell-panel);
+      border: 1px solid var(--shell-border);
+      border-radius: 20px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+      backdrop-filter: blur(10px);
+    }
+
+    .shell-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 22px;
+      margin-bottom: 24px;
+    }
+
+    .shell-brand {
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--shell-text);
+    }
+
+    .shell-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .shell-nav a,
+    .shell-actions a,
+    .shell-links a {
+      color: var(--shell-accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .shell-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .shell-hero {
+      padding: 28px;
+    }
+
+    .shell-eyebrow {
+      margin: 0 0 10px;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--shell-accent);
+      font-weight: 700;
+    }
+
+    .shell-hero h1,
+    .shell-card h2 {
+      margin: 0 0 12px;
+      line-height: 1.15;
+    }
+
+    .shell-hero p,
+    .shell-card p,
+    .shell-card li {
+      color: var(--shell-muted);
+      line-height: 1.7;
+    }
+
+    .shell-actions,
+    .shell-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .shell-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: var(--shell-accent);
+      color: #fff !important;
+    }
+
+    .shell-grid-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .shell-card {
+      padding: 24px;
+    }
+
+    .shell-card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .shell-kv {
+      display: grid;
+      gap: 10px;
+    }
+
+    .shell-kv strong {
+      color: var(--shell-text);
+    }
+
+    #root {
+      min-height: 1px;
+    }
+
+    @media (max-width: 720px) {
+      #app-shell {
+        padding: 14px;
+      }
+
+      .shell-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .shell-hero,
+      .shell-card {
+        padding: 20px;
+      }
+    }
+  </style>
+
   <!-- JSON-LD Structured Data: Organization -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "@id": "https://octanode.online/#organization",
+      "@id": "https://octanode.co/#organization",
       "name": "Octa Node Engineering",
       "alternateName": ["OctaNode", "Octa Node", "Octa-Node Engineering", "OctaNode Engineering", "octanode"],
-      "description": "Nigeria's leading AI solutions provider specializing in artificial intelligence for education, business automation, and digital transformation. Creators of Stylus AI and TI-BOT.",
-      "url": "https://octanode.online",
-      "logo": "https://octanode.online/assets/logo.png",
-      "image": "https://octanode.online/assets/logo.png",
+      "description": "Practical software company building tools for education, workforce operations, timed operations, fashion commerce, cooperative banking workflows, and digital transformation. Creators of Stylus AI, TI-BOT, DressCode, and WorkSpot.",
+      "url": "https://octanode.co",
+      "logo": "https://octanode.co/assets/logo.png",
+      "image": "https://octanode.co/assets/logo.png",
       "foundingDate": "2020",
       "telephone": "+2349028267223",
-      "email": "info@octanode.online",
+      "email": "info@octanode.co",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "No 14 Oluwatoyin Off Gani, By Ademulegun Road",
@@ -121,7 +309,7 @@
         },
         {
           "@type": "ContactPoint",
-          "email": "support@octanode.online",
+          "email": "support@octanode.co",
           "contactType": "technical support",
           "availableLanguage": ["English"]
         }
@@ -153,10 +341,10 @@
       "@type": "WebSite",
       "name": "Octa Node Engineering",
       "alternateName": ["OctaNode", "octanode.co", "octanode.online"],
-      "url": "https://octanode.online",
+      "url": "https://octanode.co",
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://octanode.online/?q={search_term_string}",
+        "target": "https://octanode.co/?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     }
@@ -167,15 +355,15 @@
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "@id": "https://octanode.online/#localbusiness",
+      "@id": "https://octanode.co/#localbusiness",
       "name": "Octa Node Engineering",
       "alternateName": "OctaNode",
-      "description": "Leading AI solutions provider in Ondo State, Nigeria. Specializing in Stylus AI exam marking and TI-BOT school management systems.",
-      "url": "https://octanode.online",
+      "description": "Software company in Ondo State, Nigeria building Stylus AI for exam marking, TI-BOT for time management, DressCode for fashion commerce, WorkSpot for attendance management, and cooperative banking workflow tools.",
+      "url": "https://octanode.co",
       "telephone": "+2349028267223",
-      "email": "info@octanode.online",
+      "email": "info@octanode.co",
       "priceRange": "$$",
-      "image": "https://octanode.online/assets/logo.png",
+      "image": "https://octanode.co/assets/logo.png",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "No 14 Oluwatoyin Off Gani, By Ademulegun Road",
@@ -203,6 +391,104 @@
 </head>
 
 <body>
+  <a class="shell-skip-link" href="#shell-main">Skip to content</a>
+  <div id="app-shell" data-state="visible">
+    <div class="shell-wrap">
+      <header class="shell-header">
+        <a class="shell-brand" href="/">Octa Node Engineering</a>
+        <nav class="shell-nav" aria-label="Quick links">
+          <a href="/product/stylus-ai">Stylus AI</a>
+          <a href="/product/ti-bot">TI-BOT</a>
+          <a href="/product/dresscode">DressCode</a>
+          <a href="/product/workspot">WorkSpot</a>
+          <a href="/ai/">AI Access</a>
+          <a href="/llms.txt">llms.txt</a>
+        </nav>
+      </header>
+
+      <main id="shell-main" class="shell-grid">
+        <section class="shell-card shell-hero">
+          <p class="shell-eyebrow">Text-first delivery for humans and AI agents</p>
+          <h1>Octa Node Engineering builds practical software for education, workforce operations, timed operations, fashion commerce, and cooperative banking workflows.</h1>
+          <p>
+            This HTML shell exposes the core company text and links immediately, before the React app and graphics finish loading.
+            Use the product pages, contact links, or machine-readable catalog below for the fastest access.
+          </p>
+          <div class="shell-actions">
+            <a class="shell-button" href="/ai/">Open AI Access Page</a>
+            <a href="/ai/catalog.json">Machine-readable catalog</a>
+            <a href="/sitemap.xml">Sitemap</a>
+          </div>
+        </section>
+
+        <section class="shell-grid-columns">
+          <article class="shell-card">
+            <h2>Stylus AI</h2>
+            <p>Examination grading software that lets educators snap handwritten exam scripts and receive consistent grading in seconds.</p>
+            <div class="shell-links">
+              <a href="/product/stylus-ai">Product page</a>
+              <a href="https://stylus.octanode.online">Launch app</a>
+              <a href="https://stylus.octanode.co">Demo</a>
+            </div>
+          </article>
+
+          <article class="shell-card">
+            <h2>TI-BOT</h2>
+            <p>Smart school bell, time management, and announcement automation for schools and other organized environments.</p>
+            <div class="shell-links">
+              <a href="/product/ti-bot">Product page</a>
+              <a href="https://tibot-ai.netlify.app">Open app</a>
+            </div>
+          </article>
+
+          <article class="shell-card">
+            <h2>DressCode</h2>
+            <p>Fashion social commerce platform for shopping, creator monetization, bespoke tailoring, and AI try-on.</p>
+            <div class="shell-links">
+              <a href="/product/dresscode">Product page</a>
+              <a href="https://dresscode-ten.vercel.app/">Open demo</a>
+            </div>
+          </article>
+
+          <article class="shell-card">
+            <h2>WorkSpot</h2>
+            <p>Workforce attendance and operations platform for geo-fenced check-ins, biometrics, live monitoring, and payroll-ready exports.</p>
+            <div class="shell-links">
+              <a href="/product/workspot">Product page</a>
+              <a href="https://play.google.com/store/search?q=workspot&amp;c=apps">Get app</a>
+            </div>
+          </article>
+        </section>
+
+        <section class="shell-grid-columns">
+          <section class="shell-card">
+            <h2>AI and crawler resources</h2>
+            <ul>
+              <li><a href="/llms.txt"><code>/llms.txt</code></a> for a plain-text summary and key routes.</li>
+              <li><a href="/ai/catalog.json"><code>/ai/catalog.json</code></a> for machine-readable company, product, and contact data.</li>
+              <li><a href="/sitemap.xml"><code>/sitemap.xml</code></a> for crawl discovery.</li>
+            </ul>
+          </section>
+
+          <section class="shell-card">
+            <h2>Contact</h2>
+            <div class="shell-kv">
+              <p><strong>Email:</strong> <a href="mailto:info@octanode.co">info@octanode.co</a></p>
+              <p><strong>Support:</strong> <a href="mailto:support@octanode.co">support@octanode.co</a></p>
+              <p><strong>Phone:</strong> <a href="tel:+2349028267223">+234 902 826 7223</a></p>
+              <p><strong>Address:</strong> No 14 Oluwatoyin Off Gani, By Ademulegun Road, Ondo State, Nigeria.</p>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+  </div>
+  <noscript>
+    <div style="padding:16px;background:#ffffff;border-top:1px solid #cbd5e1;color:#0f172a;">
+      JavaScript is disabled. The text-first links above remain available, and the machine-readable catalog is at
+      <a href="/ai/catalog.json">/ai/catalog.json</a>.
+    </div>
+  </noscript>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>

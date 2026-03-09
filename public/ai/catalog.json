@@ -1,0 +1,128 @@
+{
+  "name": "Octa Node Engineering",
+  "brand": "OctaNode",
+  "lastUpdated": "2026-03-07",
+  "canonicalSite": "https://octanode.co",
+  "mirrorSites": [
+    "https://octanode.online"
+  ],
+  "summary": "Octa Node Engineering builds practical software for education, timed operations, workforce management, fashion commerce, and cooperative banking workflows from Ondo State, Nigeria.",
+  "contact": {
+    "email": "info@octanode.co",
+    "supportEmail": "support@octanode.co",
+    "phone": "+2349028267223",
+    "address": "No 14 Oluwatoyin Off Gani, By Ademulegun Road, Ondo State, Nigeria"
+  },
+  "resources": {
+    "home": "https://octanode.co/",
+    "aiAccessPage": "https://octanode.co/ai/",
+    "llms": "https://octanode.co/llms.txt",
+    "sitemap": "https://octanode.co/sitemap.xml",
+    "privacy": "https://octanode.co/privacy",
+    "terms": "https://octanode.co/terms"
+  },
+  "products": [
+    {
+      "id": "stylus-ai",
+      "name": "Stylus AI",
+      "category": "Education Technology",
+      "targetAudience": "Educators and academic institutions",
+      "summary": "Examination grading software that grades handwritten exam scripts in seconds after capture.",
+      "fullDescription": "Stylus AI lets educators snap handwritten exam scripts and receive grading in seconds instead of minutes, with reduced human error, lower bias, and highly consistent scoring.",
+      "features": [
+        "Snap-to-grade workflow for handwritten exam scripts",
+        "High-accuracy handwriting recognition",
+        "Customizable grading rubrics and criteria",
+        "Consistent scoring across exam batches",
+        "Fast result generation",
+        "Detailed analytics and progress tracking"
+      ],
+      "benefits": [
+        "Grade scripts in seconds instead of minutes",
+        "Reduce human marking errors",
+        "Minimize grading bias",
+        "Maintain extreme scoring consistency"
+      ],
+      "links": {
+        "productPage": "https://octanode.co/product/stylus-ai",
+        "app": "https://stylus.octanode.online",
+        "demo": "https://stylus.octanode.co"
+      }
+    },
+    {
+      "id": "ti-bot",
+      "name": "TI-BOT",
+      "category": "Time Management",
+      "targetAudience": "Schools, administrators, and high-traffic service environments",
+      "summary": "Smart school bell, time management, and announcement automation for schools and other organized environments.",
+      "fullDescription": "TI-BOT works as a smart school bell, time management, and announcement system for schools and other organized environments, and can also support banks with timing and crowd updates.",
+      "features": [
+        "Smart scheduling and timed announcements",
+        "Multi-zone audio management",
+        "Emergency broadcast capabilities",
+        "Cloud-based monitoring",
+        "Support for crowd and service updates"
+      ],
+      "benefits": [
+        "Keep operations on time",
+        "Reduce manual timing errors",
+        "Centralize announcements",
+        "Support timely crowd updates"
+      ],
+      "links": {
+        "productPage": "https://octanode.co/product/ti-bot",
+        "app": "https://tibot-ai.netlify.app"
+      }
+    },
+    {
+      "id": "dresscode",
+      "name": "DressCode",
+      "category": "Fashion Commerce",
+      "targetAudience": "Fashion shoppers, creators, designers, and tailors",
+      "summary": "Fashion social commerce platform for shopping, bespoke tailoring, creator monetization, and AI virtual try-on.",
+      "fullDescription": "DressCode combines fashion shopping, bespoke tailoring, social content, creator earnings, direct messaging, secure payments, and AI virtual try-on in one platform built for Nigeria's fashion ecosystem.",
+      "features": [
+        "Fashion marketplace for local designers and boutiques",
+        "Bespoke tailoring workflow",
+        "Built-in social feed and fashion reels",
+        "AI virtual try-on",
+        "Direct messaging and secure payments"
+      ],
+      "benefits": [
+        "Discover local fashion in one place",
+        "Order custom outfits from verified tailors",
+        "Preview outfits before purchase",
+        "Monetize fashion content and community influence"
+      ],
+      "links": {
+        "productPage": "https://octanode.co/product/dresscode",
+        "app": "https://dresscode-ten.vercel.app/"
+      }
+    },
+    {
+      "id": "workspot",
+      "name": "WorkSpot",
+      "category": "Workforce Operations",
+      "targetAudience": "Operations managers, HR teams, supervisors, and field-based organizations",
+      "summary": "Smart attendance and workforce operations platform with geo-fenced check-ins, biometric verification, and payroll-ready exports.",
+      "fullDescription": "WorkSpot helps organizations automate attendance with geo-fencing and biometric verification, monitor teams in real time, keep compliance-ready logs, and export verified records for payroll.",
+      "features": [
+        "Geo-fenced attendance zones and automated check-in rules",
+        "Biometric verification with Face ID or fingerprint support",
+        "Real-time workforce monitoring and supervisor dashboards",
+        "Payroll-ready CSV and PDF exports",
+        "Compliance logs and offline check-in support"
+      ],
+      "benefits": [
+        "Reduce attendance fraud and manual time tracking",
+        "See workforce activity live across sites",
+        "Prepare verified attendance data for payroll faster",
+        "Maintain consistent check-in records even with poor connectivity"
+      ],
+      "links": {
+        "productPage": "https://octanode.co/product/workspot",
+        "app": "https://play.google.com/store/search?q=workspot&c=apps"
+      }
+    }
+  ]
+}

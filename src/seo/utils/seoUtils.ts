@@ -109,12 +109,12 @@ export const generateOrganizationStructuredData = () => {
     "@id": `${seoConfig.siteUrl}/#organization`,
     "name": "Octa Node Engineering",
     "alternateName": ["OctaNode", "Octa Node", "Octa-Node Engineering", "octanode"],
-    "description": "Octa Node Engineering (OctaNode) is Nigeria's leading AI solutions provider. We build Stylus AI for automated exam grading and TI-BOT for smart school bell systems. Transforming education and business through AI.",
+    "description": "Octa Node Engineering (OctaNode) builds practical software for education, workforce operations, timed operations, fashion commerce, and cooperative banking workflows. We build Stylus AI, TI-BOT, DressCode, WorkSpot, and other business software solutions.",
     "url": seoConfig.siteUrl,
     "logo": `${seoConfig.siteUrl}${seoConfig.defaultImage}`,
     "image": `${seoConfig.siteUrl}${seoConfig.defaultImage}`,
     "telephone": "+2349028267223",
-    "email": "info@octanode.online",
+    "email": "info@octanode.co",
     "foundingDate": "2020",
     "contactPoint": {
       "@type": "ContactPoint",
@@ -152,6 +152,12 @@ export const generateOrganizationStructuredData = () => {
       "Handwriting Recognition",
       "Automated Exam Grading",
       "Smart School Systems",
+      "Fashion Commerce",
+      "Virtual Try-On",
+      "Attendance Management",
+      "Workforce Operations",
+      "Time Management Systems",
+      "Cooperative Banking Software",
       "IoT"
     ]
   };

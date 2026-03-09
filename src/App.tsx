@@ -1,13 +1,10 @@
 import { useState, useEffect, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import Carousel from './components/Carousel';
-import ProductCarousel from './components/ProductCarousel';
 import ImageModal from './components/ImageModal';
 
 import LazyImage from './components/LazyImage';
 import { generateAltText } from './utils/imageUtils';
-import { preloadCriticalImages } from './utils/preloader';
 import {
   addResourceHints,
   preloadCriticalResources,
@@ -24,6 +21,8 @@ import {
   LazyPrivacy,
   LazyTerms,
   LazyBlog,
+  LazyHeroCarousel,
+  LazyProductCarousel,
   LazyAdminRouter,
   LazyChatWidget,
   preloadCriticalComponents
@@ -48,6 +47,28 @@ const scrollToSection = (sectionId: string) => {
   if (element) {
     element.scrollIntoView({ behavior: 'smooth' });
   }
+};
+
+type IdleRenderHandle = number;
+type IdleRenderWindow = Window & {
+  requestIdleCallback?: (cb: () => void, options?: { timeout: number }) => IdleRenderHandle;
+  cancelIdleCallback?: (handle: IdleRenderHandle) => void;
+};
+
+const scheduleNonCriticalRender = (callback: () => void, timeout: number) => {
+  const idleWindow = window as IdleRenderWindow;
+
+  if (typeof idleWindow.requestIdleCallback === 'function') {
+    const handle = idleWindow.requestIdleCallback(() => callback(), { timeout });
+    return () => {
+      if (typeof idleWindow.cancelIdleCallback === 'function') {
+        idleWindow.cancelIdleCallback(handle);
+      }
+    };
+  }
+
+  const handle = window.setTimeout(callback, timeout);
+  return () => window.clearTimeout(handle);
 };
 
 // Navigation component to handle location-based active states
@@ -75,6 +96,8 @@ const Navigation: React.FC = () => {
     } else if (location.pathname.startsWith('/product/')) {
       setActiveSection('products');
       setPageSEO('products');
+    } else if (location.pathname === '/blog') {
+      setPageSEO('blog');
     } else if (location.pathname === '/privacy') {
       setPageSEO('privacy');
     } else if (location.pathname === '/terms') {
@@ -206,6 +229,9 @@ function App() {
   const [modalImage, setModalImage] = useState<string>('');
   const [modalProductName, setModalProductName] = useState<string>('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showHeroVisual, setShowHeroVisual] = useState(false);
+  const [showProductMedia, setShowProductMedia] = useState(false);
+  const [showChatWidget, setShowChatWidget] = useState(false);
 
   // Rotating hero terms
   const rotatingTerms = [
@@ -222,6 +248,18 @@ function App() {
       setTermIndex((prev) => (prev + 1) % rotatingTerms.length);
     }, 2200);
     return () => window.clearInterval(intervalId);
+  }, []);
+
+  useEffect(() => {
+    const cleanups = [
+      scheduleNonCriticalRender(() => setShowHeroVisual(true), 150),
+      scheduleNonCriticalRender(() => setShowProductMedia(true), 450),
+      scheduleNonCriticalRender(() => setShowChatWidget(true), 2200)
+    ];
+
+    return () => {
+      cleanups.forEach((cleanup) => cleanup());
+    };
   }, []);
 
   // Initialize Google Analytics
@@ -276,11 +314,15 @@ function App() {
     registerServiceWorker();
     monitorMemoryUsage();
 
-    // Preload critical images and components for better performance
-    preloadCriticalImages();
-    preloadCriticalComponents();
-
     return () => clearTimeout(timeoutId);
+  }, []);
+
+  useEffect(() => {
+    const cleanup = scheduleNonCriticalRender(() => {
+      preloadCriticalComponents();
+    }, 3000);
+
+    return () => cleanup();
   }, []);
 
   // Handle image modal
@@ -325,8 +367,8 @@ function App() {
                           {/* Home Page SEO */}
                           <SEOHead
                             title="AI Solutions for Business - Transform Your Future"
-                            description="Leading AI solutions provider in Nigeria. Discover Stylus AI for education and TI-BOT for banking. Transform your business with cutting-edge artificial intelligence technology."
-                            keywords={['AI solutions for business', 'artificial intelligence education', 'AI banking solutions', 'Stylus AI', 'TI-BOT', 'Nigeria AI company', 'business automation']}
+                            description="Leading software and AI solutions provider in Nigeria. Discover Stylus AI for exam grading, TI-BOT for time management, DressCode for fashion commerce, WorkSpot for smart attendance, and Octa Node's cooperative banking software."
+                            keywords={['AI solutions for business', 'artificial intelligence education', 'cooperative banking software', 'Stylus AI', 'TI-BOT', 'DressCode', 'WorkSpot', 'Nigeria AI company', 'business automation']}
                             type="website"
                           />
 
@@ -350,7 +392,7 @@ function App() {
                                     {rotatingTerms[termIndex]}
                                   </span>
                                 </h1>
-                                <p>We infuse the world with intelligence by developing bespoke AI solutions that drive growth, efficiency, and innovation in education, business, and banking. Discover our flagship products: Stylus AI for educational excellence and TI-BOT for smart banking automation.</p>
+                                <p>We build practical software for education, workforce operations, timed operations, fashion commerce, and cooperative banking workflows. Stylus AI grades handwritten exam scripts in seconds, TI-BOT manages timing and announcements, DressCode powers fashion commerce, and WorkSpot automates verified attendance and live team monitoring.</p>
                                 <div className="hero-actions">
                                   <a
                                     href="#products"
@@ -375,9 +417,30 @@ function App() {
                                 </div>
                               </div>
                               <div className="hero-visual">
-                                <div className="glass-panel">
-                                  <Carousel />
-                                </div>
+                                {showHeroVisual ? (
+                                  <Suspense fallback={
+                                    <div className="hero-visual-placeholder glass-panel">
+                                      <h3>Loading visuals</h3>
+                                      <p>The company summary, product links, and contact details are already available while media loads.</p>
+                                    </div>
+                                  }>
+                                    <div className="glass-panel">
+                                      <LazyHeroCarousel />
+                                    </div>
+                                  </Suspense>
+                                ) : (
+                                  <div className="hero-visual-placeholder glass-panel">
+                                    <h3>Quick access</h3>
+                                    <p>Start with the fastest paths to the core content.</p>
+                                    <ul>
+                                      <li><Link to="/product/stylus-ai">Read about Stylus AI</Link></li>
+                                      <li><Link to="/product/ti-bot">Read about TI-BOT</Link></li>
+                                      <li><Link to="/product/dresscode">Read about DressCode</Link></li>
+                                      <li><Link to="/product/workspot">Read about WorkSpot</Link></li>
+                                      <li><a href="/llms.txt">Open llms.txt</a></li>
+                                    </ul>
+                                  </div>
+                                )}
                               </div>
                             </div>
                           </section>
@@ -385,26 +448,44 @@ function App() {
                           <section id="products" className="products-section">
                             <div className="container">
                               <div className="section-header">
-                                <h2>Our AI Solutions</h2>
-                                <p style={{ color: 'var(--text-muted)' }}>Meticulously crafted intelligence for the modern world</p>
+                                <h2>Our Products</h2>
+                                <p style={{ color: 'var(--text-muted)' }}>Meticulously crafted software for education, operations, fashion, and business</p>
                               </div>
                               <div className="products-grid">
                                 {products.map(product => (
                                   <div className="product-card glass-panel" key={product.name}>
-                                    <div className="product-visual">
-                                      <ProductCarousel
-                                        images={product.images}
-                                        productName={product.name}
-                                        onImageClick={handleImageClick}
-                                      />
-                                    </div>
                                     <div className="product-details">
                                       <h3>{product.name}</h3>
                                       <p>{product.description}</p>
-                                      <Link to={`/product/${product.id}`} className="btn btn-primary">
-                                        Learn More
-                                      </Link>
+                                      <div className="product-link-list">
+                                        <Link to={`/product/${product.id}`} className="btn btn-primary">
+                                          Learn More
+                                        </Link>
+                                        <a href={product.appUrl} target="_blank" rel="noopener noreferrer" className="product-link-chip">
+                                          Open App
+                                        </a>
+                                        {product.demoUrl && (
+                                          <a href={product.demoUrl} target="_blank" rel="noopener noreferrer" className="product-link-chip">
+                                            View Demo
+                                          </a>
+                                        )}
+                                      </div>
                                     </div>
+                                    {showProductMedia ? (
+                                      <div className="product-visual">
+                                        <Suspense fallback={<div className="product-visual-placeholder">Loading product visuals...</div>}>
+                                          <LazyProductCarousel
+                                            images={product.images}
+                                            productName={product.name}
+                                            onImageClick={handleImageClick}
+                                          />
+                                        </Suspense>
+                                      </div>
+                                    ) : (
+                                      <div className="product-visual-placeholder">
+                                        Visual preview deferred so text and links stay available first.
+                                      </div>
+                                    )}
                                   </div>
                                 ))}
                               </div>
@@ -465,8 +546,8 @@ function App() {
                                     </div>
                                     <div className="info-content">
                                       <h3>Email Us</h3>
-                                      <p><a href="mailto:info@octanode.online">info@octanode.online</a></p>
-                                      <p><a href="mailto:support@octanode.online">support@octanode.online</a></p>
+                                      <p><a href="mailto:info@octanode.co">info@octanode.co</a></p>
+                                      <p><a href="mailto:support@octanode.co">support@octanode.co</a></p>
                                     </div>
                                   </div>
                                 </div>
@@ -504,6 +585,8 @@ function App() {
                                           <option value="general">General Inquiry</option>
                                           <option value="stylus-ai">Stylus AI - Product Demo</option>
                                           <option value="ti-bot">TI-BOT - Product Demo</option>
+                                          <option value="dresscode">DressCode - Product Demo</option>
+                                          <option value="workspot">WorkSpot - Product Demo</option>
                                           <option value="partnership">Partnership Opportunity</option>
                                           <option value="support">Technical Support</option>
                                           <option value="other">Other</option>
@@ -594,7 +677,7 @@ function App() {
                           loading="eager"
                           priority={true}
                         />
-                        <p>Infusing the world with intelligence through cutting-edge AI solutions for education, business, and banking.</p>
+                        <p>Infusing the world with intelligence through practical software for education, workforce operations, timed operations, fashion commerce, and cooperative banking workflows.</p>
                         <div className="social-links">
                           <a href="#" aria-label="Facebook">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -624,6 +707,8 @@ function App() {
                         <ul>
                           <li><Link to="/product/stylus-ai">Stylus AI</Link></li>
                           <li><Link to="/product/ti-bot">TI-BOT</Link></li>
+                          <li><Link to="/product/dresscode">DressCode</Link></li>
+                          <li><Link to="/product/workspot">WorkSpot</Link></li>
                           <li>
                             <a
                               href="#products"
@@ -694,8 +779,8 @@ function App() {
                             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                           </svg>
                           <div>
-                            <a href="mailto:info@octanode.online">info@octanode.online</a>
-                            <a href="mailto:support@octanode.online">support@octanode.online</a>
+                            <a href="mailto:info@octanode.co">info@octanode.co</a>
+                            <a href="mailto:support@octanode.co">support@octanode.co</a>
                           </div>
                         </div>
                       </div>
@@ -707,7 +792,7 @@ function App() {
                         <div className="footer-bottom-links">
                           <Link to="/privacy">Privacy Policy</Link>
                           <Link to="/terms">Terms of Service</Link>
-                          <a href="mailto:support@octanode.online">Support</a>
+                          <a href="mailto:support@octanode.co">Support</a>
                         </div>
                       </div>
                     </div>
@@ -722,9 +807,11 @@ function App() {
                 />
 
                 {/* Chat Widget - only show on public pages */}
-                <Suspense fallback={null}>
-                  <LazyChatWidget />
-                </Suspense>
+                {showChatWidget && (
+                  <Suspense fallback={null}>
+                    <LazyChatWidget />
+                  </Suspense>
+                )}
               </div>
             } />
             <Route element={<AdminGuard />}>

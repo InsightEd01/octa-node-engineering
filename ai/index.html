@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Access | Octa Node Engineering</title>
+  <meta name="description" content="Text-first and machine-readable access page for Octa Node Engineering. Find company details, product summaries, links, llms.txt, and the structured AI catalog.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://octanode.co/ai/">
+  <link rel="alternate" hreflang="en" href="https://octanode.co/ai/">
+  <link rel="alternate" hreflang="en" href="https://octanode.online/ai/">
+  <link rel="alternate" type="text/plain" href="https://octanode.co/llms.txt" title="LLMs access file">
+  <link rel="alternate" type="application/json" href="https://octanode.co/ai/catalog.json" title="Machine-readable catalog">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --panel: rgba(255, 255, 255, 0.94);
+      --text: #0f172a;
+      --muted: #475569;
+      --accent: #2563eb;
+      --border: rgba(148, 163, 184, 0.3);
+    }
+
+    body {
+      margin: 0;
+      font-family: "Outfit", "Poppins", sans-serif;
+      background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 30%), var(--bg);
+      color: var(--text);
+    }
+
+    #app-shell {
+      padding: 24px;
+      transition: opacity 180ms ease;
+    }
+
+    #app-shell[data-state="hidden"] {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 12px;
+      line-height: 1.15;
+    }
+
+    p, li {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .topbar, .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .topbar {
+      justify-content: space-between;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    @media (max-width: 720px) {
+      #app-shell {
+        padding: 14px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app-shell" data-state="visible">
+    <div class="wrap">
+      <section class="card topbar">
+        <a href="/">Octa Node Engineering</a>
+        <div class="actions">
+          <a href="/product/stylus-ai">Stylus AI</a>
+          <a href="/product/ti-bot">TI-BOT</a>
+          <a href="/product/dresscode">DressCode</a>
+          <a href="/product/workspot">WorkSpot</a>
+          <a href="/llms.txt">llms.txt</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">AI access layer</p>
+        <h1>Fast text and link access for crawlers, agents, and low-bandwidth visitors.</h1>
+        <p>
+          This page exists so Octa Node Engineering can expose its core information without waiting for graphics,
+          sliders, or client-side rendering. The structured catalog and plain-text route list are linked below.
+        </p>
+        <div class="actions">
+          <a class="button" href="/ai/catalog.json">Open JSON catalog</a>
+          <a href="/llms.txt">Read llms.txt</a>
+          <a href="/sitemap.xml">Open sitemap</a>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Company</h2>
+          <p>Octa Node Engineering builds practical software for education, timed operations, workforce management, fashion commerce, and cooperative banking workflows from Ondo State, Nigeria.</p>
+          <ul>
+            <li>Website: <a href="https://octanode.co/">octanode.co</a></li>
+            <li>Mirror: <a href="https://octanode.online/">octanode.online</a></li>
+            <li>Email: <a href="mailto:info@octanode.co">info@octanode.co</a></li>
+            <li>Phone: <a href="tel:+2349028267223">+234 902 826 7223</a></li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Stylus AI</h2>
+          <p>Examination grading software that grades captured handwritten exam scripts in seconds with consistent scoring.</p>
+          <ul>
+            <li>Product page: <a href="/product/stylus-ai">/product/stylus-ai</a></li>
+            <li>App: <a href="https://stylus.octanode.online">stylus.octanode.online</a></li>
+            <li>Demo: <a href="https://stylus.octanode.co">stylus.octanode.co</a></li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>TI-BOT</h2>
+          <p>Smart school bell, time management, and announcement automation for schools, administrators, and other organized environments.</p>
+          <ul>
+            <li>Product page: <a href="/product/ti-bot">/product/ti-bot</a></li>
+            <li>App: <a href="https://tibot-ai.netlify.app">tibot-ai.netlify.app</a></li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>DressCode</h2>
+          <p>Fashion social commerce platform for shopping, bespoke tailoring, creator monetization, and AI virtual try-on.</p>
+          <ul>
+            <li>Product page: <a href="/product/dresscode">/product/dresscode</a></li>
+            <li>Demo: <a href="https://dresscode-ten.vercel.app/">dresscode-ten.vercel.app</a></li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>WorkSpot</h2>
+          <p>Smart attendance and workforce operations platform with geo-fenced check-ins, biometric verification, and payroll-ready exports.</p>
+          <ul>
+            <li>Product page: <a href="/product/workspot">/product/workspot</a></li>
+            <li>App: <a href="https://play.google.com/store/search?q=workspot&amp;c=apps">Google Play search</a></li>
+          </ul>
+        </article>
+      </section>
+    </div>
+  </div>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>

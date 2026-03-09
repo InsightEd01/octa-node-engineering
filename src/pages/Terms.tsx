@@ -320,7 +320,7 @@ const Terms = () => {
                     <div className="contact-info">
                       <div className="contact-item">
                         <span className="contact-label">Email:</span>
-                        <a href="mailto:terms@octanode.online">terms@octanode.online</a>
+                        <a href="mailto:terms@octanode.co">terms@octanode.co</a>
                       </div>
                       <div className="contact-item">
                         <span className="contact-label">Phone:</span>

@@ -10,7 +10,7 @@ import ProductStructuredData from '../seo/components/ProductStructuredData';
 import StructuredData from '../seo/components/StructuredData';
 import { generateFAQStructuredData } from '../seo/utils/seoUtils';
 import { SocialSharingPreview } from '../seo/components/SocialSharingPreview';
-import { stylusAIStructuredData, tibotStructuredData } from '../seo/data/structuredData';
+import { stylusAIStructuredData, tibotStructuredData, dresscodeStructuredData, workspotStructuredData } from '../seo/data/structuredData';
 
 const ProductPage: React.FC = () => {
   const { productId } = useParams<{ productId: string }>();
@@ -44,8 +44,8 @@ const ProductPage: React.FC = () => {
     );
   }
 
-  const productTitle = `${product.name} - Advanced AI Solution | Octa Node Engineering`;
-  const productDescription = `${product.name} is an industry-leading artificial intelligence solution that ${product.description.toLowerCase()}. Discover how our AI technology can automate workflows, enhance productivity, and deliver measurable results for ${product.targetAudience.toLowerCase()}.`;
+  const productTitle = `${product.name} | Octa Node Engineering`;
+  const productDescription = `${product.description} Built by Octa Node Engineering for ${product.targetAudience.toLowerCase()}.`;
   const productKeywords = [
     product.name,
     'AI solution',
@@ -60,6 +60,8 @@ const ProductPage: React.FC = () => {
   const getProductStructuredData = () => {
     if (product.id === 'stylus-ai') return stylusAIStructuredData;
     if (product.id === 'ti-bot') return tibotStructuredData;
+    if (product.id === 'dresscode') return dresscodeStructuredData;
+    if (product.id === 'workspot') return workspotStructuredData;
     return {
       '@context': 'https://schema.org',
       '@type': 'Product' as const,
@@ -81,20 +83,38 @@ const ProductPage: React.FC = () => {
   const faqItems: Array<{ question: string; answer: string }> = (() => {
     if (product.id === 'stylus-ai') {
       return [
-        { question: 'What is Stylus AI?', answer: 'Stylus AI is an AI-powered assessment system that marks handwritten and theory-based exams with high accuracy, providing instant, consistent feedback for educators.' },
-        { question: 'How accurate is Stylus AI for handwriting recognition?', answer: 'Stylus AI uses advanced handwriting recognition with multi-language support and customizable rubrics, delivering consistent accuracy that improves with usage.' },
-        { question: 'Does Stylus AI integrate with LMS platforms?', answer: 'Yes. Stylus AI integrates with popular LMS platforms and supports exports for common formats, enabling streamlined grading workflows.' },
-        { question: 'Can I customize grading criteria?', answer: 'Absolutely. Educators can define custom rubrics and criteria per subject or assessment type to match institutional standards.' },
+        { question: 'What is Stylus AI?', answer: 'Stylus AI is an examination grading software that grades handwritten exam scripts in seconds after they are captured with a phone camera or scanner.' },
+        { question: 'How does Stylus AI work?', answer: 'Educators snap or upload handwritten exam scripts, and Stylus AI reads the content, applies the grading logic, and returns results far faster than manual marking.' },
+        { question: 'Why use Stylus AI instead of manual grading?', answer: 'Stylus AI reduces marking time, limits human error, minimizes bias, and keeps grading consistent across large batches of handwritten scripts.' },
+        { question: 'Can I customize grading criteria?', answer: 'Yes. Educators can define custom rubrics and criteria per subject or assessment type to match institutional standards.' },
         { question: 'Is my data secure?', answer: 'We follow industry best practices for data security and privacy, including encrypted storage and role-based access controls.' }
       ];
     }
     if (product.id === 'ti-bot') {
       return [
-        { question: 'What is TI-BOT?', answer: 'TI-BOT is an AI-enabled school time management and announcement system that replaces traditional bells with smart scheduling and multi-zone audio.' },
+        { question: 'What is TI-BOT?', answer: 'TI-BOT is a smart school bell, time management, and announcement system that automates schedules, bells, and public updates for schools and other organized environments.' },
         { question: 'Can TI-BOT manage multiple zones?', answer: 'Yes. TI-BOT supports multi-zone audio management for different blocks or departments, including emergency broadcast overrides.' },
         { question: 'Is TI-BOT cloud managed?', answer: 'TI-BOT provides cloud-based management for scheduling, monitoring, and updates, accessible from web and mobile.' },
         { question: 'How reliable is TI-BOT during network issues?', answer: 'Schedules are cached on-device for offline continuity, and the system syncs automatically once connectivity is restored.' },
-        { question: 'Does TI-BOT integrate with school systems?', answer: 'TI-BOT integrates with common school management systems and calendars to automate bell schedules and announcements.' }
+        { question: 'Can TI-BOT be used in banks?', answer: 'Yes. TI-BOT is not Octa Node Engineering’s banking software, but it can be used in banks to manage timing, coordinate crowd updates, and deliver timely announcements.' }
+      ];
+    }
+    if (product.id === 'dresscode') {
+      return [
+        { question: 'What is DressCode?', answer: 'DressCode is a Nigerian fashion social commerce platform that combines shopping, bespoke tailoring, creator monetization, and AI virtual try-on in one app.' },
+        { question: 'Who is DressCode for?', answer: 'DressCode serves fashion shoppers, designers, tailors, boutiques, and creators who want to buy, sell, showcase, or monetize fashion online.' },
+        { question: 'Does DressCode support custom tailoring?', answer: 'Yes. Users can place bespoke orders with verified tailors and dressmakers, share references, and manage the order journey digitally.' },
+        { question: 'What makes DressCode different from a normal marketplace?', answer: 'DressCode combines commerce with social discovery, direct messaging, creator earnings, and AI try-on, so the full fashion journey happens in one place.' },
+        { question: 'Does DressCode include AI try-on?', answer: 'Yes. DressCode includes an AI virtual try-on experience that helps users preview outfits on themselves before buying.' }
+      ];
+    }
+    if (product.id === 'workspot') {
+      return [
+        { question: 'What is WorkSpot?', answer: 'WorkSpot is a workforce attendance and operations platform that automates verified check-ins, live team monitoring, and payroll-ready attendance records.' },
+        { question: 'How does WorkSpot verify attendance?', answer: 'WorkSpot combines geo-fencing with mobile biometric verification so employees can only check in from approved locations and with their own device-based identity checks.' },
+        { question: 'Can WorkSpot work without internet?', answer: 'Yes. WorkSpot supports offline check-ins and syncs the records once a connection is restored.' },
+        { question: 'Does WorkSpot support payroll exports?', answer: 'Yes. WorkSpot supports payroll-ready exports in standard formats such as CSV and PDF, and is designed to integrate with existing payroll workflows.' },
+        { question: 'Who should use WorkSpot?', answer: 'WorkSpot is suited for operations teams, HR departments, supervisors, and organizations that manage attendance across offices, job sites, or distributed teams.' }
       ];
     }
     return [
@@ -128,9 +148,15 @@ const ProductPage: React.FC = () => {
               <div className="pp-badge">{product.category} Solution</div>
               <h1 className="pp-hero-title">{product.name}</h1>
               <p className="pp-hero-desc">
-                {product.name} is an advanced artificial intelligence platform that helps{' '}
-                {product.targetAudience.toLowerCase()} streamline operations and boost efficiency
-                through intelligent automation.
+                {product.id === 'stylus-ai'
+                  ? 'Snap handwritten exam scripts and let Stylus AI grade them in seconds with reduced human error, lower bias, and consistent scoring.'
+                  : product.id === 'ti-bot'
+                    ? 'Coordinate bells, schedules, announcements, and public updates with a smart time management system built for organized environments.'
+                  : product.id === 'dresscode'
+                    ? 'Shop local fashion, place bespoke tailoring orders, monetize style content, and preview outfits with AI virtual try-on in one platform.'
+                  : product.id === 'workspot'
+                    ? 'Verify attendance with geo-fencing and biometrics, monitor teams live, and produce payroll-ready records from one operations platform.'
+                  : `${product.name} is an advanced artificial intelligence platform that helps ${product.targetAudience.toLowerCase()} streamline operations and boost efficiency through intelligent automation.`}
               </p>
               <div className="pp-hero-actions">
                 <a href={product.appUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
@@ -226,7 +252,7 @@ const ProductPage: React.FC = () => {
               <div className="pp-card pp-share">
                 <h4>Share this product</h4>
                 <SocialSharingPreview
-                  url={typeof window !== 'undefined' ? window.location.href : `https://octanodeengineering.com/product/${product.id}`}
+                  url={typeof window !== 'undefined' ? window.location.href : `https://octanode.co/product/${product.id}`}
                   title={productTitle}
                   description={productDescription}
                   image={product.images[0]}

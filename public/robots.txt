@@ -11,6 +11,9 @@ Disallow: /admin/*
 
 # Allow specific important pages
 Allow: /
+Allow: /ai/
+Allow: /ai/*
+Allow: /llms.txt
 Allow: /product/
 Allow: /product/*
 Allow: /privacy
@@ -33,9 +36,20 @@ Allow: /
 Disallow: /admin/
 Crawl-delay: 1
 
-# Block any potential scraping bots from sensitive areas
+User-agent: GPTBot
+Allow: /
+Disallow: /admin/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin/
+
+# Block sensitive areas
 User-agent: *
-Disallow: /*.json$
 Disallow: /api/
 Disallow: /_*
 Disallow: /.*

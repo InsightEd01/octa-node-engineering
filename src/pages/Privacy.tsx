@@ -347,7 +347,7 @@ const Privacy = () => {
                     <div className="contact-info">
                       <div className="contact-item">
                         <span className="contact-label">Email:</span>
-                        <a href="mailto:privacy@octanode.online">privacy@octanode.online</a>
+                        <a href="mailto:privacy@octanode.co">privacy@octanode.co</a>
                       </div>
                       <div className="contact-item">
                         <span className="contact-label">Phone:</span>

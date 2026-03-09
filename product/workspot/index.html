@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WorkSpot | Octa Node Engineering</title>
+  <meta name="description" content="WorkSpot is Octa Node Engineering's smart attendance and workforce operations platform with geo-fencing, biometrics, live monitoring, and payroll-ready exports.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://octanode.co/product/workspot">
+  <link rel="alternate" hreflang="en" href="https://octanode.co/product/workspot">
+  <link rel="alternate" hreflang="en" href="https://octanode.online/product/workspot">
+  <link rel="alternate" type="text/plain" href="https://octanode.co/llms.txt" title="LLMs access file">
+  <link rel="alternate" type="application/json" href="https://octanode.co/ai/catalog.json" title="Machine-readable catalog">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --panel: rgba(255, 255, 255, 0.94);
+      --text: #0f172a;
+      --muted: #475569;
+      --accent: #2563eb;
+      --border: rgba(148, 163, 184, 0.3);
+    }
+
+    body {
+      margin: 0;
+      font-family: "Outfit", "Poppins", sans-serif;
+      background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 30%), var(--bg);
+      color: var(--text);
+    }
+
+    #app-shell {
+      padding: 24px;
+      transition: opacity 180ms ease;
+    }
+
+    #app-shell[data-state="hidden"] {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+    }
+
+    .topbar, .actions, .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .topbar {
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    h1, h2 {
+      margin: 0 0 12px;
+      line-height: 1.15;
+    }
+
+    p, li {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    @media (max-width: 720px) {
+      #app-shell {
+        padding: 14px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app-shell" data-state="visible">
+    <div class="wrap">
+      <section class="card topbar">
+        <a href="/">Octa Node Engineering</a>
+        <div class="actions">
+          <a href="/product/stylus-ai">Stylus AI</a>
+          <a href="/product/ti-bot">TI-BOT</a>
+          <a href="/product/dresscode">DressCode</a>
+          <a href="/ai/">AI Access</a>
+          <a href="/llms.txt">llms.txt</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <h1>WorkSpot</h1>
+        <p>
+          WorkSpot is a smart attendance and workforce operations platform that uses geo-fenced check-ins,
+          biometric verification, live monitoring, and payroll-ready exports to keep distributed teams accountable.
+        </p>
+        <div class="actions">
+          <a class="button" href="https://play.google.com/store/search?q=workspot&amp;c=apps">Get the App</a>
+          <a href="/ai/catalog.json">Structured catalog</a>
+          <a href="/product/dresscode">See DressCode</a>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Core features</h2>
+          <ul>
+            <li>Geo-fenced attendance zones and automated check-in rules</li>
+            <li>Biometric verification with Face ID or fingerprint support</li>
+            <li>Real-time workforce monitoring and supervisor dashboards</li>
+            <li>Payroll-ready CSV and PDF attendance exports</li>
+            <li>Offline check-ins with sync when connectivity returns</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Best fit</h2>
+          <ul>
+            <li>Operations managers overseeing field or distributed teams</li>
+            <li>HR teams replacing manual attendance logs</li>
+            <li>Supervisors who need real-time visibility into site activity</li>
+            <li>Organizations preparing verified attendance data for payroll</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Important links</h2>
+          <ul>
+            <li>Product route: <a href="/product/workspot">/product/workspot</a></li>
+            <li>App: <a href="https://play.google.com/store/search?q=workspot&amp;c=apps">Google Play search</a></li>
+            <li>Company site: <a href="https://octanode.co/">octanode.co</a></li>
+            <li>Email: <a href="mailto:info@octanode.co">info@octanode.co</a></li>
+          </ul>
+        </article>
+      </section>
+    </div>
+  </div>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>
