@@ -28,8 +28,8 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   const currentPath = typeof window !== 'undefined' ? window.location.pathname + window.location.search : '';
   const defaultCanonical = `${seoConfig.siteUrl.replace(/\/$/, '')}${currentPath}`;
 
-  const finalUrl = url || (typeof window !== 'undefined' ? window.location.href : seoConfig.siteUrl);
   const finalCanonical = canonical || defaultCanonical;
+  const finalUrl = url || finalCanonical;
 
   // Generate alternate URL for the other domain
   const alternateUrl = finalCanonical.replace('octanode.co', 'octanode.online');

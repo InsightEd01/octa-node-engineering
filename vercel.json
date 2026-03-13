@@ -1,8 +1,72 @@
 {
-    "rewrites": [
-        {
-            "source": "/(.*)",
-            "destination": "/index.html"
-        }
-    ]
+  "rewrites": [
+    {
+      "source": "/ai",
+      "destination": "/ai/index.html"
+    },
+    {
+      "source": "/ai/",
+      "destination": "/ai/index.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog/index.html"
+    },
+    {
+      "source": "/blog/",
+      "destination": "/blog/index.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy/index.html"
+    },
+    {
+      "source": "/privacy/",
+      "destination": "/privacy/index.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms/index.html"
+    },
+    {
+      "source": "/terms/",
+      "destination": "/terms/index.html"
+    },
+    {
+      "source": "/product/stylus-ai",
+      "destination": "/product/stylus-ai/index.html"
+    },
+    {
+      "source": "/product/stylus-ai/",
+      "destination": "/product/stylus-ai/index.html"
+    },
+    {
+      "source": "/product/ti-bot",
+      "destination": "/product/ti-bot/index.html"
+    },
+    {
+      "source": "/product/ti-bot/",
+      "destination": "/product/ti-bot/index.html"
+    },
+    {
+      "source": "/product/dresscode",
+      "destination": "/product/dresscode/index.html"
+    },
+    {
+      "source": "/product/dresscode/",
+      "destination": "/product/dresscode/index.html"
+    },
+    {
+      "source": "/product/workspot",
+      "destination": "/product/workspot/index.html"
+    },
+    {
+      "source": "/product/workspot/",
+      "destination": "/product/workspot/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }

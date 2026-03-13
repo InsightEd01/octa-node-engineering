@@ -17,6 +17,9 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         ai: resolve(__dirname, 'ai/index.html'),
+        blog: resolve(__dirname, 'blog/index.html'),
+        privacy: resolve(__dirname, 'privacy/index.html'),
+        terms: resolve(__dirname, 'terms/index.html'),
         stylusAi: resolve(__dirname, 'product/stylus-ai/index.html'),
         tiBot: resolve(__dirname, 'product/ti-bot/index.html'),
         dresscode: resolve(__dirname, 'product/dresscode/index.html'),

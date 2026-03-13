@@ -64,7 +64,6 @@ const Terms = () => {
         description="Terms of service for Octa Node Engineering AI solutions. Read our terms and conditions for using our AI products and services."
         keywords={['terms of service', 'AI terms', 'service agreement', 'Octa Node Engineering']}
         type="article"
-        noindex={true}
       />
 
       <div className="terms-page">

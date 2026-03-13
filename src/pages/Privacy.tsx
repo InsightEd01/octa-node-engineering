@@ -64,7 +64,6 @@ const Privacy = () => {
         description="Privacy policy for Octa Node Engineering. Learn how we protect your data and privacy when using our AI solutions and services."
         keywords={['privacy policy', 'data protection', 'AI privacy', 'Octa Node Engineering']}
         type="article"
-        noindex={true}
       />
 
       <div className="privacy-policy-page">

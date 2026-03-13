@@ -2,7 +2,7 @@
 
 Canonical site: https://octanode.co/
 Mirror site: https://octanode.online/
-AI access page: https://octanode.co/ai/
+AI access page: https://octanode.co/ai
 Machine-readable catalog: https://octanode.co/ai/catalog.json
 Sitemap: https://octanode.co/sitemap.xml
 
@@ -38,7 +38,8 @@ Products
 
 Useful routes
 - Home: https://octanode.co/
-- AI access page: https://octanode.co/ai/
+- AI access page: https://octanode.co/ai
+- Blog: https://octanode.co/blog
 - Privacy: https://octanode.co/privacy
 - Terms: https://octanode.co/terms
 

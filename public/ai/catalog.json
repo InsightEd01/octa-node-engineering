@@ -15,7 +15,8 @@
   },
   "resources": {
     "home": "https://octanode.co/",
-    "aiAccessPage": "https://octanode.co/ai/",
+    "aiAccessPage": "https://octanode.co/ai",
+    "blog": "https://octanode.co/blog",
     "llms": "https://octanode.co/llms.txt",
     "sitemap": "https://octanode.co/sitemap.xml",
     "privacy": "https://octanode.co/privacy",

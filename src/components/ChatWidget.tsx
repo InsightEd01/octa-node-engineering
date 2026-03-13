@@ -12,7 +12,7 @@ interface ChatMessage {
 }
 
 const SHARED_AGENT_BASE_URL =
-  import.meta.env.VITE_SHARED_AGENT_BASE_URL?.replace(/\/$/, '') || 'http://localhost:8000';
+  import.meta.env.VITE_SHARED_AGENT_BASE_URL?.replace(/\/$/, '') || 'https://web-production-816e1.up.railway.app';
 const INITIAL_ASSISTANT_MESSAGE =
   "Hello. I'm the Octa Node website assistant. I can help you with our products, demos, company information, and the best next step for your needs.";
 
@@ -221,8 +221,8 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ className = '' }) => {
       const fallbackMessage: ChatMessage = {
         id: messages.length + 2,
         text: error instanceof Error
-          ? `${error.message} You can also contact Octa Node directly at info@octanode.online.`
-          : 'The assistant is unavailable right now. Please contact Octa Node at info@octanode.online.',
+          ? `${error.message} You can also contact Octa Node directly at info@octanode.co.`
+          : 'The assistant is unavailable right now. Please contact Octa Node at info@octanode.co.',
         sender: 'ai',
         timestamp: new Date()
       };

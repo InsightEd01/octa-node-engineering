@@ -96,7 +96,7 @@ export const createCanonicalUrl = (path: string): string => {
  */
 export const createAlternateUrl = (path: string): string => {
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
-  return `https://octanode.co${cleanPath}`;
+  return `https://octanode.online${cleanPath}`;
 };
 
 /**

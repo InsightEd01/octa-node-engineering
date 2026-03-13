@@ -11,7 +11,8 @@ Disallow: /admin/*
 
 # Allow specific important pages
 Allow: /
-Allow: /ai/
+Allow: /ai
+Allow: /blog
 Allow: /ai/*
 Allow: /llms.txt
 Allow: /product/
