@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { getProductById } from '../data/products';
-import ProductCarousel from '../components/ProductCarousel';
+import { getProductById, products } from '../data/products';
+import LazyImage from '../components/LazyImage';
 import ImageModal from '../components/ImageModal';
+import { generateAltText } from '../utils/imageUtils';
 
 // SEO Components
 import { SEOHead } from '../seo/components/SEOHead';
@@ -12,10 +13,28 @@ import { generateFAQStructuredData } from '../seo/utils/seoUtils';
 import { SocialSharingPreview } from '../seo/components/SocialSharingPreview';
 import { stylusAIStructuredData, tibotStructuredData, dresscodeStructuredData, workspotStructuredData } from '../seo/data/structuredData';
 
+type TabId = 'overview' | 'features' | 'benefits' | 'specs' | 'faq';
+
+const tabs: { id: TabId; label: string }[] = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'features', label: 'Features' },
+  { id: 'benefits', label: 'Benefits' },
+  { id: 'specs', label: 'Specifications' },
+  { id: 'faq', label: 'FAQ' },
+];
+
+const trustPoints = [
+  { icon: '☁️', title: 'Cloud-delivered', body: 'Always up to date — nothing to install or maintain.' },
+  { icon: '🔒', title: 'Secure by design', body: 'Encrypted storage and role-based access controls.' },
+  { icon: '🤝', title: 'Hands-on support', body: 'Our team helps you set up and stay on track.' },
+];
+
 const ProductPage: React.FC = () => {
   const { productId } = useParams<{ productId: string }>();
   const product = productId ? getProductById(productId) : null;
 
+  const [activeImage, setActiveImage] = useState(0);
+  const [activeTab, setActiveTab] = useState<TabId>('overview');
   const [modalImage, setModalImage] = useState<string>('');
   const [modalProductName, setModalProductName] = useState<string>('');
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -124,6 +143,26 @@ const ProductPage: React.FC = () => {
     ];
   })();
 
+  const heroDescription = product.id === 'stylus-ai'
+    ? 'Snap handwritten exam scripts and let Stylus AI grade them in seconds with reduced human error, lower bias, and consistent scoring.'
+    : product.id === 'ti-bot'
+      ? 'Coordinate bells, schedules, announcements, and public updates with a smart time management system built for organized environments.'
+    : product.id === 'dresscode'
+      ? 'Shop local fashion, place bespoke tailoring orders, monetize style content, and preview outfits with AI virtual try-on in one platform.'
+    : product.id === 'workspot'
+      ? 'Verify attendance with geo-fencing and biometrics, monitor teams live, and produce payroll-ready records from one operations platform.'
+    : `${product.name} helps ${product.targetAudience.toLowerCase()} streamline operations and boost efficiency through intelligent automation.`;
+
+  const heroFacts = [
+    { label: 'Category', value: product.category },
+    { label: 'Launched', value: product.launchDate },
+    { label: 'Built for', value: product.targetAudience },
+  ];
+
+  const relatedProducts = products.filter((item) => item.id !== product.id).slice(0, 3);
+
+  const shareUrl = typeof window !== 'undefined' ? window.location.href : `https://octanode.co/product/${product.id}`;
+
   return (
     <div className="product-page">
       {/* SEO */}
@@ -131,7 +170,7 @@ const ProductPage: React.FC = () => {
       <ProductStructuredData product={getProductStructuredData()} />
       <StructuredData data={generateFAQStructuredData(faqItems)} />
 
-      {/* ── HERO ── */}
+      {/* ── HERO: gallery + info ── */}
       <section className="pp-hero">
         <div className="container">
           <nav className="pp-breadcrumb" aria-label="breadcrumb">
@@ -143,21 +182,57 @@ const ProductPage: React.FC = () => {
           </nav>
 
           <div className="pp-hero-grid">
-            {/* Left: info */}
+            {/* Gallery */}
+            <div className="pp-gallery">
+              <button
+                type="button"
+                className="pp-gallery-main"
+                onClick={() => handleImageClick(product.images[activeImage], product.name)}
+                aria-label={`Open ${product.name} screenshot ${activeImage + 1} in full view`}
+              >
+                <LazyImage
+                  src={product.images[activeImage]}
+                  alt={generateAltText(product.name, 'screenshot', activeImage)}
+                  className="pp-gallery-image"
+                  loading="eager"
+                  priority
+                />
+              </button>
+
+              {product.images.length > 1 && (
+                <div className="pp-gallery-thumbs" role="tablist" aria-label={`${product.name} screenshots`}>
+                  {product.images.map((img, index) => (
+                    <button
+                      key={img}
+                      type="button"
+                      role="tab"
+                      aria-selected={index === activeImage}
+                      aria-label={`View screenshot ${index + 1}`}
+                      className={`pp-gallery-thumb ${index === activeImage ? 'is-active' : ''}`}
+                      onClick={() => setActiveImage(index)}
+                    >
+                      <LazyImage src={img} alt="" loading="lazy" />
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Info */}
             <div className="pp-hero-info">
               <div className="pp-badge">{product.category} Solution</div>
-              <h1 className="pp-hero-title">{product.name}</h1>
-              <p className="pp-hero-desc">
-                {product.id === 'stylus-ai'
-                  ? 'Snap handwritten exam scripts and let Stylus AI grade them in seconds with reduced human error, lower bias, and consistent scoring.'
-                  : product.id === 'ti-bot'
-                    ? 'Coordinate bells, schedules, announcements, and public updates with a smart time management system built for organized environments.'
-                  : product.id === 'dresscode'
-                    ? 'Shop local fashion, place bespoke tailoring orders, monetize style content, and preview outfits with AI virtual try-on in one platform.'
-                  : product.id === 'workspot'
-                    ? 'Verify attendance with geo-fencing and biometrics, monitor teams live, and produce payroll-ready records from one operations platform.'
-                  : `${product.name} is an advanced artificial intelligence platform that helps ${product.targetAudience.toLowerCase()} streamline operations and boost efficiency through intelligent automation.`}
-              </p>
+              <h1 className="pp-hero-title"><span className="octa-heading-glow">{product.name}</span></h1>
+              <p className="pp-hero-desc">{heroDescription}</p>
+
+              <div className="pp-fact-row" aria-label={`${product.name} details`}>
+                {heroFacts.map((fact) => (
+                  <div key={fact.label} className="pp-fact">
+                    <span>{fact.label}</span>
+                    <strong>{fact.value}</strong>
+                  </div>
+                ))}
+              </div>
+
               <div className="pp-hero-actions">
                 <a href={product.appUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                   Launch App
@@ -167,36 +242,56 @@ const ProductPage: React.FC = () => {
                     Try Demo
                   </a>
                 )}
+                <Link to={`/contact?product=${encodeURIComponent(product.name)}`} className="btn btn-secondary">
+                  Talk to Sales
+                </Link>
               </div>
-            </div>
 
-            {/* Right: images */}
-            <div className="pp-hero-carousel">
-              <ProductCarousel
-                images={product.images}
-                productName={product.name}
-                onImageClick={handleImageClick}
-              />
+              <ul className="pp-trust-row">
+                {trustPoints.map((point) => (
+                  <li key={point.title}>
+                    <span aria-hidden="true">{point.icon}</span>
+                    <div>
+                      <strong>{point.title}</strong>
+                      <small>{point.body}</small>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── DETAILS ── */}
-      <section className="pp-details">
+      {/* ── TABBED INFORMATION ── */}
+      <section className="pp-tabbed">
         <div className="container">
-          <div className="pp-details-grid">
+          <div className="pp-tab-bar" role="tablist" aria-label={`${product.name} information`}>
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                type="button"
+                role="tab"
+                aria-selected={activeTab === tab.id}
+                className={activeTab === tab.id ? 'active' : ''}
+                onClick={() => setActiveTab(tab.id)}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
 
-            {/* Main content */}
-            <div className="pp-main">
-              <h2>Why Choose {product.name}?</h2>
+          <div className="pp-tab-panel" role="tabpanel">
+            {activeTab === 'overview' && (
               <div className="pp-description">
+                <h2>Why choose {product.name}?</h2>
                 {product.fullDescription.split('\n\n').map((para, i) => (
                   <p key={i}>{para}</p>
                 ))}
               </div>
+            )}
 
-              <h2>Core Features</h2>
+            {activeTab === 'features' && (
               <ul className="pp-features">
                 {product.features.map((feature, i) => (
                   <li key={i}>
@@ -208,8 +303,9 @@ const ProductPage: React.FC = () => {
                   </li>
                 ))}
               </ul>
+            )}
 
-              <h2>Key Benefits</h2>
+            {activeTab === 'benefits' && (
               <ul className="pp-benefits">
                 {product.benefits.map((benefit, i) => (
                   <li key={i}>
@@ -218,13 +314,10 @@ const ProductPage: React.FC = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            )}
 
-            {/* Sidebar */}
-            <aside className="pp-sidebar">
-              {/* Tech Specs */}
-              <div className="pp-card pp-specs">
-                <h3>Technical Specifications</h3>
+            {activeTab === 'specs' && (
+              <div className="pp-specs-table">
                 <div className="pp-spec-row">
                   <span className="pp-spec-label">Platform</span>
                   <span className="pp-spec-value">{product.techSpecs.platform}</span>
@@ -237,56 +330,85 @@ const ProductPage: React.FC = () => {
                   <span className="pp-spec-label">Requirements</span>
                   <span className="pp-spec-value">{product.techSpecs.requirements}</span>
                 </div>
+                <div className="pp-spec-row">
+                  <span className="pp-spec-label">Category</span>
+                  <span className="pp-spec-value">{product.category}</span>
+                </div>
+                <div className="pp-spec-row">
+                  <span className="pp-spec-label">Launched</span>
+                  <span className="pp-spec-value">{product.launchDate}</span>
+                </div>
               </div>
+            )}
 
-              {/* CTA card */}
-              <div className="pp-card pp-cta-card">
-                <h3>Ready to Get Started?</h3>
-                <p>Experience the power of {product.name} today.</p>
-                <a href={product.appUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary pp-cta-btn">
-                  Launch {product.name}
-                </a>
+            {activeTab === 'faq' && (
+              <div className="pp-faq-list">
+                {faqItems.map((item) => (
+                  <details key={item.question} className="pp-faq-item">
+                    <summary>{item.question}</summary>
+                    <p>{item.answer}</p>
+                  </details>
+                ))}
               </div>
-
-              {/* Social share */}
-              <div className="pp-card pp-share">
-                <h4>Share this product</h4>
-                <SocialSharingPreview
-                  url={typeof window !== 'undefined' ? window.location.href : `https://octanode.co/product/${product.id}`}
-                  title={productTitle}
-                  description={productDescription}
-                  image={product.images[0]}
-                  platforms={['facebook', 'twitter', 'linkedin', 'whatsapp']}
-                  showPreview={false}
-                />
-              </div>
-            </aside>
+            )}
           </div>
         </div>
       </section>
 
-      {/* ── BOTTOM CTA ── */}
+      {/* ── RELATED PRODUCTS ── */}
+      {relatedProducts.length > 0 && (
+        <section className="pp-related">
+          <div className="container">
+            <div className="octa-section-heading">
+              <span>Explore more</span>
+              <h2>Other <span className="octa-heading-glow">products</span> from Octa Node</h2>
+            </div>
+            <div className="pp-related-grid">
+              {relatedProducts.map((item) => (
+                <Link key={item.id} to={`/product/${item.id}`} className="pp-related-card">
+                  <div className="pp-related-image">
+                    <LazyImage src={item.images[0]} alt={generateAltText(item.name, 'thumbnail', 0)} loading="lazy" />
+                  </div>
+                  <div className="pp-related-body">
+                    <span>{item.category}</span>
+                    <h3>{item.name}</h3>
+                    <p>{item.description}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── BOTTOM CTA + SHARE ── */}
       <section className="pp-bottom-cta">
         <div className="container">
-          <h2>Transform Your Workflow with {product.name}</h2>
-          <p>Join thousands of users who have already revolutionised their processes.</p>
-          <div className="pp-bottom-actions">
-            <a href={product.appUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-large">
-              Get Started Now
-            </a>
-            <Link
-              to="/"
-              className="btn btn-secondary btn-large"
-              onClick={(e) => {
-                e.preventDefault();
-                window.location.href = '/';
-                setTimeout(() => {
-                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                }, 100);
-              }}
-            >
-              Contact Sales
-            </Link>
+          <div className="pp-bottom-grid">
+            <div className="pp-bottom-copy">
+              <h2>Transform your workflow with <span className="octa-heading-glow">{product.name}</span></h2>
+              <p>Join the teams already using {product.name} to get more done with less friction.</p>
+              <div className="pp-bottom-actions">
+                <a href={product.appUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-large">
+                  Get Started Now
+                </a>
+                <Link to="/contact" className="btn btn-secondary btn-large">
+                  Contact Sales
+                </Link>
+              </div>
+            </div>
+
+            <div className="pp-share-card">
+              <h4>Share {product.name}</h4>
+              <SocialSharingPreview
+                url={shareUrl}
+                title={productTitle}
+                description={productDescription}
+                image={product.images[0]}
+                platforms={['facebook', 'twitter', 'linkedin', 'whatsapp']}
+                showPreview={false}
+              />
+            </div>
           </div>
         </div>
       </section>

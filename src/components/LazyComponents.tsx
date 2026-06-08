@@ -17,6 +17,10 @@ export const LazyBlog = lazy(() =>
   import('../pages/Blog').then(module => ({ default: module.default }))
 );
 
+export const LazyContact = lazy(() =>
+  import('../pages/ContactPage').then(module => ({ default: module.default }))
+);
+
 export const LazyHeroCarousel = lazy(() =>
   import('./Carousel').then(module => ({ default: module.default }))
 );

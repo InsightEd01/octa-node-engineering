@@ -71,7 +71,7 @@ const Privacy = () => {
         <section className="privacy-hero">
           <div className="container">
             <div className="privacy-hero-content">
-              <h1>Privacy Policy</h1>
+              <h1>Privacy <span className="octa-heading-glow">Policy</span></h1>
               <p className="privacy-subtitle">
                 Your privacy is important to us. This policy explains how we collect, use, and protect your information.
               </p>

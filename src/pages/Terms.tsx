@@ -71,7 +71,7 @@ const Terms = () => {
         <section className="terms-hero">
           <div className="container">
             <div className="terms-hero-content">
-              <h1>Terms & Conditions</h1>
+              <h1>Terms &amp; <span className="octa-heading-glow">Conditions</span></h1>
               <p className="terms-subtitle">
                 Please read these terms carefully before using our services. By using our services, you agree to be bound by these terms.
               </p>

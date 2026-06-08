@@ -54,7 +54,7 @@ const Blog = () => {
           <div className="container">
             <div className="site-blog-hero-panel">
               <div className="site-blog-eyebrow">Octa Node Journal</div>
-              <h1>Product thinking, AI operations, and field notes from the tools we build.</h1>
+              <h1>Product thinking and <span className="octa-heading-glow">AI operations</span>.</h1>
               <p>
                 The public blog is not connected to a live database. It is currently powered by a local content
                 collection, and this page now exposes a fuller library across education, workforce operations,
@@ -150,7 +150,7 @@ const Blog = () => {
             <div className="site-blog-feed-header">
               <div>
                 <div className="site-blog-eyebrow">Library</div>
-                <h2>Latest published articles</h2>
+                <h2>Latest <span className="octa-heading-glow">published articles</span></h2>
               </div>
               <p>
                 Showing {filteredPosts.length} of {publishedSiteBlogPosts.length} published posts.

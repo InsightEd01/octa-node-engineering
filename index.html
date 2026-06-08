@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.classList.add('js');</script>
 
   <!-- Primary Meta Tags -->
   <title>Octa Node Engineering - AI Solutions for Business, Education & Automation | Nigeria</title>
@@ -135,6 +136,50 @@
     .shell-wrap {
       max-width: 1120px;
       margin: 0 auto;
+    }
+
+    .shell-loading {
+      display: none;
+      min-height: 70vh;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      text-align: center;
+    }
+
+    .shell-spinner {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 3px solid rgba(37, 99, 235, 0.15);
+      border-top-color: var(--shell-accent);
+      animation: shell-spin 0.8s linear infinite;
+    }
+
+    .shell-loading p {
+      margin: 0;
+      color: var(--shell-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    @keyframes shell-spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* JS-enabled browsers: hide the text shell visually and show a loader
+       while React boots. Crawlers and no-JS clients still get the full
+       text shell, since this rule only applies once 'js' is added. */
+    html.js .shell-wrap {
+      display: none;
+    }
+
+    html.js .shell-loading {
+      display: flex;
     }
 
     .shell-header,
@@ -393,6 +438,10 @@
 <body>
   <a class="shell-skip-link" href="#shell-main">Skip to content</a>
   <div id="app-shell" data-state="visible">
+    <div class="shell-loading" role="status" aria-live="polite">
+      <div class="shell-spinner" aria-hidden="true"></div>
+      <p>Loading Octa Node Engineering…</p>
+    </div>
     <div class="shell-wrap">
       <header class="shell-header">
         <a class="shell-brand" href="/">Octa Node Engineering</a>

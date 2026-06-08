@@ -42,6 +42,7 @@ class RobotsGenerator {
     content += `Allow: /\n`;
     content += `Allow: /ai\n`;
     content += `Allow: /blog\n`;
+    content += `Allow: /contact\n`;
     content += `Allow: /ai/*\n`;
     content += `Allow: /llms.txt\n`;
     content += `Allow: /product/\n`;
@@ -119,6 +120,7 @@ class SitemapGenerator {
     const staticPages = [
       { path: '/ai', changefreq: 'weekly', priority: 0.9 },
       { path: '/blog', changefreq: 'weekly', priority: 0.7 },
+      { path: '/contact', changefreq: 'monthly', priority: 0.6 },
       { path: '/privacy', changefreq: 'yearly', priority: 0.3 },
       { path: '/terms', changefreq: 'yearly', priority: 0.3 }
     ];
